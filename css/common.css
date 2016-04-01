@@ -18,7 +18,6 @@ body {
     color: #222;
     background-color: #c0c0c0;
     height: 100%;
-    font-size: 1em;
 }
 ul {
   list-style-type: none;
@@ -35,7 +34,7 @@ a:active {
   opacity: 0.3;
 }
 h1 {
-  font-size: 2em;
+  font-size: 3em;
 }
 #container {
   margin: 0 auto;
@@ -102,5 +101,57 @@ nav a {
 article {
   width: 70%;
   margin-left: 10px;
-  background-color: #ff69B4;
+  background-color: rgba(255, 255, 255, 0.3);
+  /*background-color: #ff69B4;*/
 }
+
+/* contents */
+#profile {
+  padding: 10px;
+}
+#profile img {
+  float: left;
+  width: 150px;
+  margin-right: 50px;
+  /*border-radius: 131px;*/
+}
+#profile .profile_elements {
+  overflow: hidden;
+  border-left: 1px solid #fff;
+  padding: 0 10px;
+}
+#profile .profile_elements h2 {
+  font-size: 2em;
+  letter-spacing: 0.5em;
+  font-weight: normal;
+  margin-top: 11px;
+  display: inline-block;
+  position: relative;
+}
+#profile .profile_elements h2::before {
+  content: "Tanaka Satoru";
+  font-size: 0.5em;
+  letter-spacing: 0.2em;
+  position: absolute;
+  top: -11px;
+  left: 5%;
+}
+#profile .profile_elements ul li {
+  margin-top: 20px;
+}
+#profile .profile_history ul li {
+  position: relative;
+  text-align: center;
+  margin-top: 30px;
+}
+#profile .profile_history ul li:not(:last-child)::after {
+  content: "＞";
+  font-size: 0.5em;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -20px;
+  margin: auto;
+  transform: rotate(90deg);
+}
+

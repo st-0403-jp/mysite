@@ -25,7 +25,7 @@ page.top = (function () {
           }
         ]
       };
-
+      /*
       var list = $('.profile_list').innerHTML;
       console.log(list);
 
@@ -34,6 +34,7 @@ page.top = (function () {
           console.log(key);
         }
       });
+      */
     }
   };
 })();

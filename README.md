@@ -64,4 +64,4 @@ base-color
     rgba(255, 255, 255, 0.3); //背景
     rgba(0, 0, 0, 0.7); //背景
 
-    box-shadow: 1px 1px 3px 1px #ff69B4;
+    box-shadow: 1px 1px 3px 1px #ff69B4; //ピンク
