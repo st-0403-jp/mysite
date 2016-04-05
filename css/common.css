@@ -111,7 +111,7 @@ article {
 
 /* contents */
 #profile {
-  padding: 10px;
+  padding: 10px 20px;
 }
 #profile .profile_elements {
   margin: 0 auto;
@@ -171,6 +171,10 @@ article {
 }
 #profile .profile_history p {
   margin-top: 20px;
+}
+#profile .profile_plan-the-year h3 {
+  font-size: 1.5em;
+  letter-spacing: 0.5em;
 }
 #container .letter-space_005 {
   letter-spacing: 0.05em !important;

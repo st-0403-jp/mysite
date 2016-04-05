@@ -8,7 +8,7 @@ common.util = (function () {
       console.log(typeof ymd);
     }
     if (ymd === 'year') {
-      return ele.innerHTML = new Date().getFullYear();
+      return (ele.length === 1) ? ele.innerHTML = new Date().getFullYear() : Array.prototype.forEach.call(ele, function (e) { e.innerHTML = new Date().getFullYear(); });
     } else if (ymd === 'date') {
       return ele.innerHTML = new Date().getDate();
     } else if (ymd === 'month') {
