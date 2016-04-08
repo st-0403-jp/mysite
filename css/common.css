@@ -93,9 +93,10 @@ nav {
 }
 nav ul li {
   text-align: center;
+  letter-spacing: 0.05em;
+  margin-top: 20px;
 }
 nav a {
-  border-bottom: 1px solid #222;
 }
 /* dummy */
 .dummy-box_1 {
@@ -111,7 +112,7 @@ article {
 
 /* contents */
 #profile {
-  padding: 10px 20px;
+  padding: 30px 20px;
 }
 #profile .profile_elements {
   margin: 0 auto;
@@ -125,7 +126,7 @@ article {
 }
 #profile .profile_elements-text {
   overflow: hidden;
-  border-left: 1px solid #fff;
+  border-left: 5px solid #fff;
   padding: 0 10px;
 }
 #profile .profile_elements-text h2 {
@@ -174,6 +175,23 @@ article {
 }
 #profile .profile_plan-the-year h3 {
   font-size: 1.5em;
+  letter-spacing: 0.5em;
+}
+#profile .profile_plan-the-year ul {
+  border-left: 5px solid #fff;
+  padding-left: 10px;
+  margin-top: 10px;
+}
+#profile .profile_plan-the-year li {
+  margin-top: 5px;
+}
+#profile .profile_plan-the-year dt {
+  font-weight: bold;
+  letter-spacing: 0.5em;
+}
+
+/* helper */
+#container .letter-space_05 {
   letter-spacing: 0.5em;
 }
 #container .letter-space_005 {
