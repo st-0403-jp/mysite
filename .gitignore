@@ -1,2 +1,6 @@
 dist/
 node_modules/
+bower_components/
+model/bower_components/
+font-awesome/
+model/font-awesome/
