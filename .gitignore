@@ -1,4 +1,4 @@
-dist/
-node_modules/
-bower_components/
-font-awesome/
+dist
+node_modules
+bower_components
+font-awesome
