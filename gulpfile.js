@@ -16,7 +16,7 @@ gulp.task('watch', function() {
 gulp.task('serve', function() {
   gulp.src('./model')
     .pipe(server({
-      host: '10.17.208.153',
+      host: '192.168.179.2',
       port: 8080,
       livereload: true,
       open: true
