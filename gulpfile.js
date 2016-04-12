@@ -12,7 +12,7 @@ var concat = require("gulp-concat");
 var server = require('gulp-webserver');
 var ejs = require('gulp-ejs');
 
-var json = JSON.parse(fs.readFileSync('./model/test.json'));
+var json = JSON.parse(fs.readFileSync('./json/test.json'));
 
 gulp.task('ejs', function () {
   return gulp.src(['./src/ejs/*.ejs'])
@@ -25,12 +25,17 @@ gulp.task('ejs', function () {
     .pipe(gulp.dest('./model'));
 });
 
+gulp.task('less', function () {
+  return gulp.src(['./src/less/*.less']).pipe(gulp.dest('./model/css'));
+});
+
 gulp.task('watch', function() {
   return gulp.watch('./src/ejs/*.ejs', ['ejs']);
 });
 
-gulp.task('serve', ['ejs'], function () {
+gulp.task('serve', ['ejs', 'less'], function () {
   gulp.watch('./src/ejs/*.ejs', ['ejs']);
+  gulp.watch('./src/less/*.less', ['less']);
   gulp.src('./model')
     .pipe(server({
       host: '0.0.0.0',
