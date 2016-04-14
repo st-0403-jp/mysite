@@ -14,29 +14,37 @@ var ejs = require('gulp-ejs');
 
 var json = JSON.parse(fs.readFileSync('./json/test.json'));
 
+/*
+ * {buffer: true, read: true, base: ''} gulp.src options dfault
+ */
+
 gulp.task('ejs', function () {
-  return gulp.src(['./src/ejs/*.ejs'])
+  return gulp.src(['src/ejs/*.ejs'])
     .pipe(ejs(json, {ext: '.html'}))
-    /*
-    .pipe(rename(function (path) {
-      path.extname = '.html';
-    }))
-    */
-    .pipe(gulp.dest('./model'));
+    .pipe(gulp.dest('model'));
 });
 
 gulp.task('less', function () {
-  return gulp.src(['./src/less/*.less']).pipe(gulp.dest('./model/css'));
+  return gulp.src(['src/less/*.less']).pipe(gulp.dest('model/css'));
+});
+
+gulp.task('js', function () {
+  return gulp.src(['src/js/*.js']).pipe(gulp.dest('model/js'));
+});
+
+gulp.task('clean', function () {
+  return gulp.src('./dist/*')
+    .pipe(clean());
 });
 
 gulp.task('watch', function() {
-  return gulp.watch('./src/ejs/*.ejs', ['ejs']);
+  return gulp.watch('src/ejs/*.ejs', ['ejs']);
 });
 
-gulp.task('serve', ['ejs', 'less'], function () {
-  gulp.watch('./src/ejs/*.ejs', ['ejs']);
-  gulp.watch('./src/less/*.less', ['less']);
-  gulp.src('./model')
+
+gulp.task('serve', ['ejs', 'less', 'js'], function () {
+  gulp.watch(['src/ejs/*.ejs', 'src/less/*.less', 'src/js/*.js'], ['ejs', 'less', 'js']);
+  gulp.src('model')
     .pipe(server({
       host: '0.0.0.0',
       port: 8888,
@@ -45,19 +53,10 @@ gulp.task('serve', ['ejs', 'less'], function () {
     }));
 });
 
-gulp.task('clean', function () {
-  return gulp.src('./dist/*')
-    .pipe(clean());
-});
 gulp.task('build', ['clean'], function () {
   //'copy'
   gulp.src(['./src/ejs/*.ejs'])
     .pipe(ejs(json, {ext: '.html'}))
-    /*
-    .pipe(rename(function (path) {
-      path.extname = '.html';
-    }))
-    */
     .pipe(gulp.dest('./dist/doc'));
 
   gulp.src(['./model/css/*.css', './model/js/*.js', 'model/bower_components/sanitize-css/sanitize.css', 'model/img/*'], {base: 'model'}).pipe(gulp.dest('./dist/doc'));
@@ -74,4 +73,6 @@ gulp.task('build', ['clean'], function () {
   */
 });
 
-gulp.task('default', ['']);
+gulp.task('default', function () {
+  console.log(gulp.task);
+});

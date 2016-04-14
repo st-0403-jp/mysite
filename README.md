@@ -58,7 +58,7 @@ font-family
     'Poiret One', 'Meiryo', 'メイリオ', sans-serif
 
 base-color
-    #333 //ほぼ黒
+    #222 //ほぼ黒
     #c0c0c0 //シルバー
     #ff69B4 //ホットピンク
 
