@@ -5,7 +5,7 @@ common.util = (function () {
 
   method.renderDate = function (ele, ymd) {
     if (typeof ymd === 'string') {
-      console.log(typeof ymd);
+      //console.log(typeof ymd);
     }
     if (ymd === 'year') {
       return (ele.length === 1) ? ele.innerHTML = new Date().getFullYear() : Array.prototype.forEach.call(ele, function (e) { e.innerHTML = new Date().getFullYear(); });

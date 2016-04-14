@@ -18,9 +18,22 @@ page.top = (function () {
       */
 
       var navList = $('nav a');
-      Array.prototype.forEach.call(navList, function (e) {
-        console.log(e.dataset);
+      var navIds = [];
+      var id;
+      Array.prototype.forEach.call(navList, function (data) {
+        id = data.dataset.navId;
+        console.log($('#' + id).scrollTop);
       });
+      
+      var $article = $('article');
+      $article.addEventListener('scroll', function () {
+        console.log(this.scrollTop);
+      });
+      /*
+      navIds.forEach(function (id) {
+        console.log(id);
+      });
+      */
     }
   };
 })();
