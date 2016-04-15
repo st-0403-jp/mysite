@@ -17,17 +17,23 @@ page.top = (function () {
       });
       */
 
-      var navList = $('nav a');
+      var $navList = $('nav a');
       var navIds = [];
       var id;
-      Array.prototype.forEach.call(navList, function (data) {
+      var idTops = [];
+      Array.prototype.forEach.call($navList, function (data) {
         id = data.dataset.navId;
-        console.log($('#' + id).scrollTop);
+        idTops.push($('#' + id).offsetTop);
       });
+
+      console.log(idTops);
       
       var $article = $('article');
       $article.addEventListener('scroll', function () {
-        console.log(this.scrollTop);
+        Array.prototype.forEach.call($navList, function (data) {
+          id = data.dataset.navId;
+          //if (this.scroll) $('#' + id).offsetTop
+        });
       });
       /*
       navIds.forEach(function (id) {
