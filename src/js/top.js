@@ -35,6 +35,9 @@ page.top = (function () {
       var offsetTopFunk;
 
       $article.addEventListener('scroll', function () {
+        Array.prototype.forEach.call($navLi, function (li) {
+          li.classList.remove('current');
+        });
         if (offsetTopFunk) {
           clearTimeout(offsetTopFunk);
         } else {
@@ -42,19 +45,25 @@ page.top = (function () {
             //timer = true;
             Array.prototype.forEach.call($navList, function (data) {
               id = data.dataset.navId;
-              idTops.push({top: $('#' + id).offsetTop, liClass: data.parentNode.classList});
+              idTops.push({top: $('#' + id).clientHeight, liClass: data.parentNode.classList});
             });
           }, 10);
         }
-        var articleTop = this.scrollTop;
+        console.log(idTops);
         //console.log(articleTop);
-        idTops.forEach(function (tops) {
-          console.log(articleTop);
-          if (articleTop === tops.top) {
-            console.log('top位置');
-            tops.liClass.add('current');
-          }
-        });
+        //0~1344
+        console.log(this.scrollTop);
+        if (this.scrollTop < 337) {
+          $navLi[0].classList.add('current');
+        } else if (338 < this.scrollTop && this.scrollTop < 673) {
+          $navLi[1].classList.add('current');
+        } else if (674 < this.scrollTop && this.scrollTop < 1009) {
+          $navLi[2].classList.add('current');
+        } else if (1010 < this.scrollTop && this.scrollTop < 1344) {
+          $navLi[3].classList.add('current');
+        } else if (this.scrollTop === 1344) {
+          $navLi[4].classList.add('current');
+        }
       });
     }
   };
