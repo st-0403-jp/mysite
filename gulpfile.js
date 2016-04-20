@@ -11,6 +11,8 @@ var rename = require("gulp-rename");
 var concat = require("gulp-concat");
 var server = require('gulp-webserver');
 var ejs = require('gulp-ejs');
+var imagemin = require('gulp-imagemin');
+var pngquant = require('imagemin-pngquant');
 
 var json = JSON.parse(fs.readFileSync('./json/test.json'));
 
@@ -32,6 +34,10 @@ gulp.task('js', function () {
   return gulp.src(['src/js/*.js']).pipe(gulp.dest('model/js'));
 });
 
+gulp.task('img', function () {
+  return gulp.src(['src/img/*.jpg']).pipe(imagemin({progressive: true}/*{use: [pngquant()]}*/)).pipe(gulp.dest('model/img'));
+});
+
 gulp.task('clean', function () {
   return gulp.src('./dist/*')
     .pipe(clean());
@@ -42,8 +48,8 @@ gulp.task('watch', function() {
 });
 
 
-gulp.task('serve', ['ejs', 'less', 'js'], function () {
-  gulp.watch(['src/ejs/*.ejs', 'src/less/*.less', 'src/js/*.js'], ['ejs', 'less', 'js']);
+gulp.task('serve', ['ejs', 'less', 'js', 'img'], function () {
+  gulp.watch(['src/ejs/*.ejs', 'src/less/*.less', 'src/js/*.js', 'src/img/*.(jpg | png)'], ['ejs', 'less', 'js', 'img']);
   gulp.src('model')
     .pipe(server({
       host: '0.0.0.0',
