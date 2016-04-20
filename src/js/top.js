@@ -6,30 +6,7 @@ page.top = (function () {
 
       common.util.renderDate($('.js-toYear'), 'year');
 
-      /*
-      var list = $('.profile_list').innerHTML;
-      console.log(list);
-
-      json.entity.forEach(function (ele, index) {
-        for (var key in ele) {
-          console.log(key);
-        }
-      });
-      */
-
       var $navLi = $('nav li');
-      var $navList = $('nav a');
-      var navIds = [];
-      var id;
-      var idTops = [];
-      /*
-      Array.prototype.forEach.call($navList, function (data) {
-        id = data.dataset.navId;
-        idTops.push($('#' + id).offsetTop);
-      });
-      */
-
-      //console.log(idTops);
       
       var $article = $('article');
       var offsetTopFunk;
@@ -38,30 +15,22 @@ page.top = (function () {
         Array.prototype.forEach.call($navLi, function (li) {
           li.classList.remove('current');
         });
-        if (offsetTopFunk) {
-          clearTimeout(offsetTopFunk);
-        } else {
-          offsetTopFunk = setTimeout(function () {
-            //timer = true;
-            Array.prototype.forEach.call($navList, function (data) {
-              id = data.dataset.navId;
-              idTops.push({top: $('#' + id).clientHeight, liClass: data.parentNode.classList});
-            });
-          }, 10);
-        }
-        console.log(idTops);
-        //console.log(articleTop);
         //0~1344
-        console.log(this.scrollTop);
-        if (this.scrollTop < 337) {
+        //console.log(this.scrollTop);
+        if (this.scrollTop < 269) {
+          //profile
           $navLi[0].classList.add('current');
-        } else if (338 < this.scrollTop && this.scrollTop < 673) {
+        } else if (270 < this.scrollTop && this.scrollTop < 539) {
+          //blog
           $navLi[1].classList.add('current');
-        } else if (674 < this.scrollTop && this.scrollTop < 1009) {
+        } else if (540 < this.scrollTop && this.scrollTop < 809) {
+          //output
           $navLi[2].classList.add('current');
-        } else if (1010 < this.scrollTop && this.scrollTop < 1344) {
+        } else if (810 < this.scrollTop && this.scrollTop < 1079) {
+          //package
           $navLi[3].classList.add('current');
-        } else if (this.scrollTop === 1344) {
+        } else if (1080 < this.scrollTop && this.scrollTop <= 1344) {
+          //contact
           $navLi[4].classList.add('current');
         }
       });
