@@ -12,7 +12,7 @@ var concat = require("gulp-concat");
 var server = require('gulp-webserver');
 var ejs = require('gulp-ejs');
 var imagemin = require('gulp-imagemin');
-var pngquant = require('imagemin-pngquant');
+//var pngquant = require('imagemin-pngquant');
 
 var json = JSON.parse(fs.readFileSync('./json/test.json'));
 
