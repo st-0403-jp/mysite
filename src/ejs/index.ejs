@@ -20,6 +20,7 @@
 </head>
 
 <body>
+<!--
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -28,7 +29,7 @@
   js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.6&appId=1583642838612725";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-
+-->
 <!-- container -->
 <div id="container">
 <header>
@@ -139,14 +140,14 @@
                     <%
                     var contactList = {
                         data: [
-                        {ele: '<i class="fa fa-envelope-o fa-4x" aria-hidden="true"></i>', link: '' },
+                        {ele: '<i class="fa fa-envelope-o fa-4x" aria-hidden="true"></i>', link: ''},
                         {ele: '<i class="fa fa-facebook-square fa-5x" aria-hidden="true"></i>', link: 'https://www.facebook.com/satoru.tanaka.9480'},
                         {ele: '<i class="fa fa-twitter-square fa-5x" aria-hidden="true"></i>', link: ''}
                         ]
                     }
                     contactList.data.forEach(function (list) {
                     %>
-                    <li><a href="<%= list.link %>"><%- list.ele %></li>
+                    <li><a href="<%= list.link %>" target="_blank"><%- list.ele %></a></li>
                     <% }); %>
                 </ul>
                 <!-- <div style="display: inline;position: static;" class="fb-page" data-href="https://www.facebook.com/satoru.tanaka.9480" data-tabs="" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/facebook"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div></div> -->
