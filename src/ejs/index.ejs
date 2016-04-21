@@ -6,7 +6,7 @@
     <!-- <link rel="stylesheet" type="text/css" href="css/common.css"> -->
     <link rel="stylesheet/less" type="text/css" href="css/common.less">
     <!-- <link rel="stylesheet/less" type="text/css" href="css/testLess.less"> -->
-    <!-- <link rel="stylesheet" type="text/css" href="css/index.css"> -->
+    <link rel="stylesheet" type="text/css" href="bower_components/bootflat/css/font-awesome.min.css">
     <!-- <link rel="stylesheet" type="text/css" href="css/imageGallery.css"> -->
     <!-- <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css"> -->
     <!-- <script type="text/javascript" src="js/js-static/underscore.js"></script> -->
@@ -20,6 +20,15 @@
 </head>
 
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.6&appId=1583642838612725";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <!-- container -->
 <div id="container">
 <header>
@@ -94,13 +103,22 @@
         <div id="skill">
             <div class="top_article-contents">
                 <ul>
-                    <li>HTML5</li>
-                    <li>CSS3</li>
-                    <li>JavaScript</li>
-                    <li>Node.js</li>
-                    <li>Gulp</li>
-                    <li>LESS</li>
-                    <li>Handlebars, EJS, Grunt, Sass, Backbone, ...</li>
+                    <%
+                    var skillList = {
+                        data: [
+                        'HTML5',
+                        'CSS3',
+                        'JavaScript',
+                        'Node.js',
+                        'Gulp',
+                        'LESS',
+                        'Handlebars, EJS, Grunt, Sass, Backbone, ...etc'
+                        ]
+                    }
+                    skillList.data.forEach(function (list) {
+                    %>
+                    <li><%= list %></li>
+                    <% }); %>
                 </ul>
             </div>
         </div>
@@ -116,7 +134,22 @@
         </div>
         <div id="contact">
             <div class="top_article-contents">
-                <h2>コンタクト、準備中</h2>
+                <!-- <h2>コンタクト、準備中</h2> -->
+                <ul>
+                    <%
+                    var contactList = {
+                        data: [
+                        {ele: '<i class="fa fa-envelope-o fa-4x" aria-hidden="true"></i>', link: '' },
+                        {ele: '<i class="fa fa-facebook-square fa-5x" aria-hidden="true"></i>', link: 'https://www.facebook.com/satoru.tanaka.9480'},
+                        {ele: '<i class="fa fa-twitter-square fa-5x" aria-hidden="true"></i>', link: ''}
+                        ]
+                    }
+                    contactList.data.forEach(function (list) {
+                    %>
+                    <li><a href="<%= list.link %>"><%- list.ele %></li>
+                    <% }); %>
+                </ul>
+                <!-- <div style="display: inline;position: static;" class="fb-page" data-href="https://www.facebook.com/satoru.tanaka.9480" data-tabs="" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/facebook"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div></div> -->
             </div>
         </div>
     </article>
