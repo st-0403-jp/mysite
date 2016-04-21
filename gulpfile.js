@@ -43,11 +43,6 @@ gulp.task('clean', function () {
     .pipe(clean());
 });
 
-gulp.task('watch', function() {
-  return gulp.watch('src/ejs/*.ejs', ['ejs']);
-});
-
-
 gulp.task('serve', ['ejs', 'less', 'js', 'img'], function () {
   gulp.watch(['src/ejs/*.ejs', 'src/less/*.less', 'src/js/*.js', 'src/img/*.(jpg | png)'], ['ejs', 'less', 'js', 'img']);
   gulp.src('model')
