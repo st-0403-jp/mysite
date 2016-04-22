@@ -12,7 +12,7 @@ var concat = require("gulp-concat");
 var server = require('gulp-webserver');
 var ejs = require('gulp-ejs');
 var imagemin = require('gulp-imagemin');
-//var pngquant = require('imagemin-pngquant');
+var pngquant = require('imagemin-pngquant');
 
 var json = JSON.parse(fs.readFileSync('./json/test.json'));
 
@@ -35,7 +35,7 @@ gulp.task('js', function () {
 });
 
 gulp.task('img', function () {
-  return gulp.src(['src/img/*.jpg']).pipe(imagemin({progressive: true}/*{use: [pngquant()]}*/)).pipe(gulp.dest('model/img'));
+  return gulp.src(['src/img/*.jpg', 'src/img/*.png']).pipe(imagemin({progressive: true}, {use: [pngquant()]})).pipe(gulp.dest('model/img'));
 });
 
 gulp.task('clean', function () {

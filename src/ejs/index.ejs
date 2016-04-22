@@ -105,20 +105,32 @@
             <div class="top_article-contents">
                 <ul>
                     <%
+                    /*1: 26px, 2: 52px, 3: 78px, 4: 104px, 5: 130px*/
                     var skillList = {
                         data: [
-                        'HTML5',
-                        'CSS3',
-                        'JavaScript',
-                        'Node.js',
-                        'Gulp',
-                        'LESS',
-                        'Handlebars, EJS, Grunt, Sass, Backbone, ...etc'
+                        {skill: 'HTML5', circleWidth: '130'},
+                        {skill: 'CSS3', circleWidth:'130'},
+                        {skill: 'JavaScript', circleWidth: '104'},
+                        {skill: 'Node.js', circleWidth: '78'},
+                        {skill: 'Gulp', circleWidth: '78'},
+                        {skill: 'LESS', circleWidth: '78'},
+                        {skill: 'Handlebars, EJS, Grunt, Sass, Backbone, ...etc', circleWidth: ''}
                         ]
                     }
-                    skillList.data.forEach(function (list) {
+                    skillList.data.forEach(function (list, index) {
                     %>
-                    <li><%= list %></li>
+                    <li><%= list.skill %></li>
+                    <%
+                        if (list.circleWidth) {
+                    %>
+                    <!--
+                    <style>
+                    #skill ul li:nth-child(<%= index + 1 %>)::after {
+                        width: <%= list.circleWidth %>px;
+                    }
+                    </style>
+                    -->
+                    <% } %>
                     <% }); %>
                 </ul>
             </div>
@@ -126,6 +138,7 @@
         <div id="blog">
             <div class="top_article-contents">
                 <h2>ブログ、準備中</h2>
+                <!-- <img src="img/circle3.png" style="width: auto;"> -->
             </div>
         </div>
         <div id="output">
