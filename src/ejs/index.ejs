@@ -33,7 +33,7 @@
 <!-- container -->
 <div id="container">
 <header>
-    <h1>The dawn of ...</h1>
+    <h1>Portfolio by Satoru Tanaka</h1>
 </header>
 
 <section id="main-contents">
@@ -105,7 +105,7 @@
             <div class="top_article-contents">
                 <ul>
                     <%
-                    /*1: 26px, 2: 52px, 3: 78px, 4: 104px, 5: 130px*/
+                    /* 1: 26px, 2: 52px, 3: 78px, 4: 104px, 5: 130px */
                     var skillList = {
                         data: [
                         {skill: 'HTML5', circleWidth: '130'},
@@ -113,26 +113,25 @@
                         {skill: 'JavaScript', circleWidth: '104'},
                         {skill: 'Node.js', circleWidth: '78'},
                         {skill: 'Gulp', circleWidth: '78'},
-                        {skill: 'LESS', circleWidth: '78'},
-                        {skill: 'Handlebars, EJS, Grunt, Sass, Backbone, ...etc', circleWidth: ''}
+                        {skill: 'LESS', circleWidth: '78'}
                         ]
                     }
                     skillList.data.forEach(function (list, index) {
                     %>
-                    <li><%= list.skill %></li>
-                    <%
-                        if (list.circleWidth) {
-                    %>
-                    <!--
-                    <style>
-                    #skill ul li:nth-child(<%= index + 1 %>)::after {
-                        width: <%= list.circleWidth %>px;
-                    }
-                    </style>
-                    -->
-                    <% } %>
+                    <li><%= list.skill %>
+                        <%
+                            if (list.circleWidth) {
+                        %>
+                        <style>
+                        #skill ul li:nth-child(<%= index + 1 %>)::after {
+                            width: <%= list.circleWidth %>px;
+                        }
+                        </style>
+                        <% } %>
+                    </li>
                     <% }); %>
                 </ul>
+                <p>Other : Handlebars, EJS, Backbone.js, ...etc</p>
             </div>
         </div>
         <div id="blog">
@@ -148,12 +147,20 @@
         </div>
         <div id="contact">
             <div class="top_article-contents">
-                <!-- <h2>コンタクト、準備中</h2> -->
+                <address>
+                    <dl>
+                        <dt><i class="fa fa-home fa-2x" aria-hidden="true"></i></dt>
+                        <dd>Tokyo</dd>
+                    </dl>
+                    <dl>
+                        <dt><i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i></dt>
+                        <dd>sato252011@gmail.com</dd>
+                    </dl>
+                </address>
                 <ul>
                     <%
                     var contactList = {
                         data: [
-                        {ele: '<i class="fa fa-envelope-o fa-4x" aria-hidden="true"></i>', link: ''},
                         {ele: '<i class="fa fa-facebook-square fa-5x" aria-hidden="true"></i>', link: 'https://www.facebook.com/satoru.tanaka.9480'},
                         {ele: '<i class="fa fa-twitter-square fa-5x" aria-hidden="true"></i>', link: ''}
                         ]
@@ -173,8 +180,7 @@
 </aside>
 
 <footer>
-  <!-- <p>a part of Photo:&nbsp <a href="http://www.gatag.net/" target="_blank">http://www.gatag.net/</a> &nbspby：céd</p> -->
-  <address><strong>&copy;</strong><span class="js-toYear"></span> SatoruTanaka All rights reserved</address>
+  <small>&copy; <span class="js-toYear"></span> SatoruTanaka All rights reserved</small>
 </footer>
 
 </div>

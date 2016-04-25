@@ -44,7 +44,8 @@ gulp.task('clean', function () {
 });
 
 gulp.task('serve', ['ejs', 'less', 'js', 'img'], function () {
-  gulp.watch(['src/ejs/*.ejs', 'src/less/*.less', 'src/js/*.js', 'src/img/*.(jpg | png)'], ['ejs', 'less', 'js', 'img']);
+  gulp.watch(['src/ejs/*.ejs', 'src/less/*.less', 'src/js/*.js'], ['ejs', 'less', 'js']);
+  gulp.watch(['src/img/*.jpg', 'src/img/*.png'], ['img']);
   gulp.src('model')
     .pipe(server({
       host: '0.0.0.0',

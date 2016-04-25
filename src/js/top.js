@@ -38,7 +38,6 @@ page.top = (function () {
         var circleWidth = li.dataset.circle;
         li.setAttribute('data-content', '');
       });
-      console.log($skillLi);
     }
   };
 })();
