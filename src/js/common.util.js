@@ -4,11 +4,12 @@ common.util = (function () {
   var method = {};
 
   method.renderDate = function (ele, ymd) {
+    var dateObj = new Date();
     if (typeof ymd === 'string') {
       //console.log(typeof ymd);
     }
     if (ymd === 'year') {
-      return (ele.length === 1) ? ele.innerHTML = new Date().getFullYear() : Array.prototype.forEach.call(ele, function (e) { e.innerHTML = new Date().getFullYear(); });
+      return (Array.isArray(ele)) ? Array.prototype.forEach.call(ele, function (e) { e.innerHTML = dateObj.getFullYear(); }) : ele.innerHTML = dateObj.getFullYear();
     } else if (ymd === 'date') {
       return ele.innerHTML = new Date().getDate();
     } else if (ymd === 'month') {

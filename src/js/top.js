@@ -9,7 +9,6 @@ page.top = (function () {
       var $navLi = $('nav li');
       
       var $article = $('article');
-      var offsetTopFunk;
 
       $article.addEventListener('scroll', function () {
         Array.prototype.forEach.call($navLi, function (li) {
@@ -33,6 +32,11 @@ page.top = (function () {
           //contact
           $navLi[4].classList.add('current');
         }
+      });
+      var $skillLi = $('#skill li');
+      Array.prototype.forEach.call($skillLi, function (li) {
+        var circleWidth = li.dataset.circle;
+        li.setAttribute('data-content', '');
       });
     }
   };
