@@ -21,8 +21,8 @@ var json = JSON.parse(fs.readFileSync('./json/test.json'));
  */
 
 gulp.task('ejs', function () {
-  return gulp.src(['src/ejs/*.ejs'])
-    .pipe(ejs(json, {ext: '.html'}))
+  return gulp.src(['src/ejs/*.ejs', 'src/ejs/tmp/profile/history.ejs'], {base: 'src/ejs/tmp'})
+    .pipe(ejs(null, {ext: '.html'}))
     .pipe(gulp.dest('model'));
 });
 

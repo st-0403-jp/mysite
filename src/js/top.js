@@ -16,19 +16,19 @@ page.top = (function () {
         });
         //0~1344
         //console.log(this.scrollTop);
-        if (this.scrollTop < 269) {
+        if (this.scrollTop < 270) {
           //profile
           $navLi[0].classList.add('current');
-        } else if (270 < this.scrollTop && this.scrollTop < 539) {
+        } else if (270 < this.scrollTop && this.scrollTop < 540) {
           //blog
           $navLi[1].classList.add('current');
-        } else if (540 < this.scrollTop && this.scrollTop < 809) {
+        } else if (540 < this.scrollTop && this.scrollTop < 810) {
           //output
           $navLi[2].classList.add('current');
-        } else if (810 < this.scrollTop && this.scrollTop < 1079) {
+        } else if (810 < this.scrollTop && this.scrollTop < 1080) {
           //package
           $navLi[3].classList.add('current');
-        } else if (1080 < this.scrollTop && this.scrollTop <= 1344) {
+        } else if (1080 < this.scrollTop && this.scrollTop <= 1348) {
           //contact
           $navLi[4].classList.add('current');
         }
