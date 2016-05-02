@@ -60,7 +60,7 @@ page.top = (function () {
             var res = xhr.responseText;
             console.log("XHR 通信が完了した（成功失敗に関わらず）");
             setTimeout(function () {
-              $('.profile_elements').innerHTML = /*'<p>入るよ</p>'*/res;
+              $('.profile_elements').innerHTML = res;
             }, 2000);
             break;
           };
