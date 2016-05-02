@@ -38,9 +38,38 @@ page.top = (function () {
         var circleWidth = li.dataset.circle;
         li.setAttribute('data-content', '');
       });
+
+      xhr.onreadystatechange = function () {
+
+        switch(xhr.readyState) {
+          case 1:
+            console.log("open() メソッドの呼び出しが完了した");
+            break;
+
+          case 2:
+            console.log("レスポンスヘッダの受信が完了した");
+            break;
+
+          case 3:
+            console.log("レスポンスボディを受信中（繰り返し実行される）");
+            break;
+
+          case 4:
+            //console.log(xhr.getAllResponseHeaders());
+            console.log(xhr.responseText);
+            var res = xhr.responseText;
+            console.log("XHR 通信が完了した（成功失敗に関わらず）");
+            setTimeout(function () {
+              $('.profile_elements').innerHTML = /*'<p>入るよ</p>'*/res;
+            }, 2000);
+            break;
+          };
+      };
+
+      xhr.open('GET', '../tmp/profile/history.html', false);
+      xhr.setRequestHeader("Content-Type" , "text/html");
+      xhr.send();
+      xhr.abort();
     }
   };
 })();
-
-//common.imageGalleryFade.start(".st-slide-gallery", true);
-

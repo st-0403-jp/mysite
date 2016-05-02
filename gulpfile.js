@@ -21,7 +21,7 @@ var json = JSON.parse(fs.readFileSync('./json/test.json'));
  */
 
 gulp.task('ejs', function () {
-  return gulp.src(['src/ejs/*.ejs', 'src/ejs/tmp/profile/history.ejs'], {base: 'src/ejs/tmp'})
+  return gulp.src(['src/ejs/*.ejs', 'src/ejs/tmp/profile/history.ejs'], {base: 'src/ejs'})
     .pipe(ejs(null, {ext: '.html'}))
     .pipe(gulp.dest('model'));
 });
@@ -45,6 +45,7 @@ gulp.task('clean', function () {
 
 gulp.task('serve', ['ejs', 'less', 'js', 'img'], function () {
   gulp.watch(['src/ejs/*.ejs', 'src/less/*.less', 'src/js/*.js'], ['ejs', 'less', 'js']);
+  gulp.watch(['src/ejs/tmp/profile/history.ejs'], ['ejs']);
   gulp.watch(['src/img/*.jpg', 'src/img/*.png'], ['img']);
   gulp.src('model')
     .pipe(server({
