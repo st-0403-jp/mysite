@@ -16,19 +16,19 @@ page.top = (function () {
         });
         //0~1344
         //console.log(this.scrollTop);
-        if (this.scrollTop < 269) {
+        if (this.scrollTop < 270) {
           //profile
           $navLi[0].classList.add('current');
-        } else if (270 < this.scrollTop && this.scrollTop < 539) {
+        } else if (270 < this.scrollTop && this.scrollTop < 540) {
           //blog
           $navLi[1].classList.add('current');
-        } else if (540 < this.scrollTop && this.scrollTop < 809) {
+        } else if (540 < this.scrollTop && this.scrollTop < 810) {
           //output
           $navLi[2].classList.add('current');
-        } else if (810 < this.scrollTop && this.scrollTop < 1079) {
+        } else if (810 < this.scrollTop && this.scrollTop < 1080) {
           //package
           $navLi[3].classList.add('current');
-        } else if (1080 < this.scrollTop && this.scrollTop <= 1344) {
+        } else if (1080 < this.scrollTop && this.scrollTop <= 1348) {
           //contact
           $navLi[4].classList.add('current');
         }
@@ -38,9 +38,38 @@ page.top = (function () {
         var circleWidth = li.dataset.circle;
         li.setAttribute('data-content', '');
       });
+
+      xhr.onreadystatechange = function () {
+
+        switch(xhr.readyState) {
+          case 1:
+            console.log("open() メソッドの呼び出しが完了した");
+            break;
+
+          case 2:
+            console.log("レスポンスヘッダの受信が完了した");
+            break;
+
+          case 3:
+            console.log("レスポンスボディを受信中（繰り返し実行される）");
+            break;
+
+          case 4:
+            //console.log(xhr.getAllResponseHeaders());
+            console.log(xhr.responseText);
+            var res = xhr.responseText;
+            console.log("XHR 通信が完了した（成功失敗に関わらず）");
+            setTimeout(function () {
+              $('.profile_elements').innerHTML = /*'<p>入るよ</p>'*/res;
+            }, 2000);
+            break;
+          };
+      };
+
+      xhr.open('GET', '../tmp/profile/history.html', false);
+      xhr.setRequestHeader("Content-Type" , "text/html");
+      xhr.send();
+      xhr.abort();
     }
   };
 })();
-
-//common.imageGalleryFade.start(".st-slide-gallery", true);
-

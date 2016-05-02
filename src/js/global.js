@@ -11,3 +11,5 @@ $ = function (eleName) {
   }
   return ele;
 };
+
+var xhr = new XMLHttpRequest();
