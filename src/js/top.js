@@ -77,13 +77,14 @@ page.top = (function () {
           };
       };
 
-      var httpRequest = function () {
-        xhr.open('GET', '../tmp/profile/history.html', false);
-        xhr.setRequestHeader("Content-Type" , "text/html");
+      var httpRequest = function (type, pass, content) {
+        xhr.open(type, pass, false);
+        xhr.setRequestHeader('Content-Type' , content);
         xhr.send();
         xhr.abort();
       };
 
+      //switch-nextクリック
       $('body').addEventListener('click', function (e) {
         var currentTarget = e.path[0];
         if (!(currentTarget.classList.value.indexOf('switch-next') === -1)) {
@@ -94,19 +95,38 @@ page.top = (function () {
           var pageCircleClass = [];
           Array.prototype.forEach.call(currentParent.children, function (i, index, is) {
             if (!(index === 0 || index === is.length - 1)) {
-              if (i.classList.value.indexOf('fa-circle-o') === -1) {
-                console.log(i);
-                /*
+              if (!(i.classList.value.indexOf('point') === -1 || index === is.length - 2)) {
+                i.classList.remove('point');
                 i.classList.remove('fa-circle');
                 i.classList.add('fa-circle-o');
                 i.nextElementSibling.classList.remove('fa-circle-o');
                 i.nextElementSibling.classList.add('fa-circle');
-                */
               }
-              //pageCircleClass.push(i.classList);
+              pageCircleClass.push(i.classList);
             }
           });
-          httpRequest();
+          setTimeout(function () {
+            pageCircleClass.forEach(function (iClass, index, iClasses) {
+              if (iClass.value.indexOf('fa-circle-o') === -1) {
+                iClass.add('point');
+                if (index === 0) {
+                  leftArrow.style.opacity = '0';
+                } else {
+                  leftArrow.style.opacity = '1.0';
+                }
+                if (index === iClasses.length - 1) {
+                  rightArrow.style.opacity = '0';
+                } else {
+                  rightArrow.style.opacity = '1.0';
+                }
+              }
+            });
+          }, 100);
+          httpRequest('GET', '../tmp/profile/history.html', 'text/html');
+        }
+
+        if (!(currentTarget.classList.value.indexOf('switch-prev') === -1)) {
+          httpRequest('GET', '../tmp/profile/elements.html', 'text/html');
         }
       });
     }
