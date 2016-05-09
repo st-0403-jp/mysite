@@ -8,25 +8,12 @@ page.top = (function () {
 
       var $navLi = $('nav li');
       var $article = $('article');
-      /*
-      $('body').addEventListener('click', function (e) {
-        console.log(e.path[0].classList);
-        console.log(e.path[1].classList);
-        if (e.path[0] === )
-      });
-      */
-      /*
-      var delegateFunk = function (e) {
-        if (e.path[0].classList.value)
-      }
-      */
 
       $article.addEventListener('scroll', function () {
         Array.prototype.forEach.call($navLi, function (li) {
           li.classList.remove('current');
         });
-        //0~1344
-        //console.log(this.scrollTop);
+        //0~1348
         if (this.scrollTop < 270) {
           //profile
           $navLi[0].classList.add('current');
