@@ -71,8 +71,9 @@ page.top = (function () {
             var res = xhr.responseText;
             console.log("XHR 通信が完了した（成功失敗に関わらず）");
             setTimeout(function () {
-              $('.profile_elements').innerHTML = res;
-            }, 200);
+              $('.profile_box').innerHTML = res;
+              $('.profile_box').style.opacity = 1.0;
+            }, 1500);
             break;
           };
       };
@@ -86,13 +87,17 @@ page.top = (function () {
 
       //switch-nextクリック
       $('body').addEventListener('click', function (e) {
+        if (e.path[0].classList.value.indexOf('switch-next') === -1 && e.path[0].classList.value.indexOf('switch-prev') === -1) {
+          return false;
+        }
+        //必要DOM
         var currentTarget = e.path[0];
+        var currentParent = e.path[1];
+        var leftArrow = currentParent.firstElementChild;
+        var rightArrow = currentParent.lastElementChild;
+
+        var pageCircleClass = [];
         if (!(currentTarget.classList.value.indexOf('switch-next') === -1)) {
-          //必要DOM
-          var currentParent = e.path[1];
-          var leftArrow = currentParent.firstElementChild;
-          var rightArrow = currentParent.lastElementChild;
-          var pageCircleClass = [];
           Array.prototype.forEach.call(currentParent.children, function (i, index, is) {
             if (!(index === 0 || index === is.length - 1)) {
               if (!(i.classList.value.indexOf('point') === -1 || index === is.length - 2)) {
@@ -105,29 +110,47 @@ page.top = (function () {
               pageCircleClass.push(i.classList);
             }
           });
-          setTimeout(function () {
-            pageCircleClass.forEach(function (iClass, index, iClasses) {
-              if (iClass.value.indexOf('fa-circle-o') === -1) {
-                iClass.add('point');
-                if (index === 0) {
-                  leftArrow.style.opacity = '0';
-                } else {
-                  leftArrow.style.opacity = '1.0';
-                }
-                if (index === iClasses.length - 1) {
-                  rightArrow.style.opacity = '0';
-                } else {
-                  rightArrow.style.opacity = '1.0';
-                }
-              }
-            });
-          }, 100);
+
           httpRequest('GET', '../tmp/profile/history.html', 'text/html');
         }
 
         if (!(currentTarget.classList.value.indexOf('switch-prev') === -1)) {
+          Array.prototype.forEach.call(currentParent.children, function (i, index, is) {
+            if (!(index === 0 || index === is.length - 1)) {
+              if (!(i.classList.value.indexOf('point') === -1 || index === 1)) {
+                i.classList.remove('point');
+                i.classList.remove('fa-circle');
+                i.classList.add('fa-circle-o');
+                i.previousElementSibling.classList.remove('fa-circle-o');
+                i.previousElementSibling.classList.add('fa-circle');
+              }
+              pageCircleClass.push(i.classList);
+            }
+          });
+
           httpRequest('GET', '../tmp/profile/elements.html', 'text/html');
         }
+
+        setTimeout(function () {
+          pageCircleClass.forEach(function (iClass, index, iClasses) {
+            if (iClass.value.indexOf('fa-circle-o') === -1) {
+              iClass.add('point');
+              if (index === 0) {
+                leftArrow.style.opacity = '0';
+              } else {
+                leftArrow.style.opacity = '1.0';
+              }
+              if (index === iClasses.length - 1) {
+                rightArrow.style.opacity = '0';
+              } else {
+                rightArrow.style.opacity = '1.0';
+              }
+            }
+          });
+        }, 100);
+
+        $('.profile_box').style.opacity = 0;
+
       });
     }
   };

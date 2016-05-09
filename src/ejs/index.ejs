@@ -40,17 +40,8 @@
 
     <article>
         <div id="profile">
-            <div class="profile_elements top_article-contents">
-                <img src="img/me.jpg" alt="田中暁">
-                <div class="profile_elements-text">
-                    <h2>田中 暁</h2>
-                    <ul>
-                        <li class="letter-space_005">30</li>
-                        <li class="letter-space_005">Male</li>
-                        <li class="letter-space_005">Front-end engineer</li>
-                        <li class="letter-space_005">like ramen, drive a car</li>
-                    </ul>
-                </div>
+            <div class="profile_box top_article-contents">
+                <%- include('tmp/profile/elements.ejs') %>
             </div>
             <!--
             <div class="profile_plan-the-year none">
@@ -78,11 +69,11 @@
             </div>
             -->
         </div>
-        <span class="paging" style="bottom: 10px;left: 0;right: 0;">
-            <i class="switch-prev fa fa-chevron-circle-left" aria-hidden="true"></i>
+        <span class="paging" style="bottom: 5px;left: 0;right: 0;">
+            <i class="switch-prev fa fa-chevron-circle-left fa-2x" aria-hidden="true"></i>
             <i class="fa fa-circle point" aria-hidden="true"></i>
             <i class="fa fa-circle-o" aria-hidden="true"></i>
-            <i class="switch-next fa fa-chevron-circle-right" aria-hidden="true"></i>
+            <i class="switch-next fa fa-chevron-circle-right fa-2x" aria-hidden="true"></i>
         </span>
         <div id="skill">
             <div class="top_article-contents">
