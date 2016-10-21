@@ -98,7 +98,7 @@ page.top = (function () {
             }
           });
 
-          httpRequest('GET', '../tmp/profile/history.html', 'text/html');
+          httpRequest('GET', '/api/mysite/profile/history.html', 'text/html');
         }
 
         if (!(currentTarget.classList.value.indexOf('switch-prev') === -1)) {
@@ -115,7 +115,7 @@ page.top = (function () {
             }
           });
 
-          httpRequest('GET', '../tmp/profile/elements.html', 'text/html');
+          httpRequest('GET', '/api/mysite/profile/elements.html', 'text/html');
         }
 
         setTimeout(function () {
