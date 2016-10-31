@@ -114,9 +114,11 @@ gulp.task('build', ['clean'], function () {
     }))
     .pipe(gulp.dest('dist/css'));
 
+  // lib
   gulp.src(['src/less/lib/*.css'])
     .pipe(gulp.dest('dist/css/lib'));
 
+  // fonts
   gulp.src(['src/less/fonts/*'])
     .pipe(gulp.dest('dist/css/fonts'));
 
