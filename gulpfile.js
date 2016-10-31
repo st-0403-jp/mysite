@@ -44,7 +44,7 @@ setTimeout(function () {
 */
 gulp.task('ejs', function () {
   ejsData['extJs'] = '.js';
-  return gulp.src(['src/ejs/*.ejs', 'src/ejs/tmp/profile/*.ejs'], {base: 'src/ejs'})
+  return gulp.src(['src/ejs/*.ejs', 'src/ejs/api/mysite/profile/*.ejs'], {base: 'src/ejs'})
     .pipe(ejs(ejsData, {ext: '.html'}))
     .pipe(gulp.dest('mock'));
 });
@@ -70,7 +70,7 @@ gulp.task('img', function () {
 
 gulp.task('serve', ['ejs', 'less', 'js', 'img'], function () {
   gulp.watch(['src/ejs/*.ejs', 'src/less/*.less', 'src/js/*.js'], ['ejs', 'less', 'js']);
-  gulp.watch(['src/ejs/tmp/profile/*.ejs'], ['ejs']);
+  gulp.watch(['src/ejs/api/mysite/profile/*.ejs'], ['ejs']);
   gulp.watch(['src/img/*.jpg', 'src/img/*.png'], ['img']);
   gulp.src('mock')
     .pipe(server({
@@ -81,7 +81,12 @@ gulp.task('serve', ['ejs', 'less', 'js', 'img'], function () {
     }));
 });
 
-gulp.task('clean', function () {
+gulp.task('cleanMock', function () {
+  return gulp.src('mock/*')
+    .pipe(clean());
+});
+
+gulp.task('cleanDist', function () {
   return gulp.src('dist/*')
     .pipe(clean());
 });

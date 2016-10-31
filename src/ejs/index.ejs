@@ -14,13 +14,15 @@
 </head>
 
 <body>
-<!-- container -->
-<div id="container">
 <header>
     <h1>Portfolio by Satoru Tanaka</h1>
 </header>
+<!-- container -->
+<div id="container">
 
 <section id="main-contents">
+    <div class="dummy-box_1"></div>
+
     <nav>
         <ul>
             <li class="current aaa bbb ccc"><a href="javascript: void(0);" data-nav-id="profile">Profile</a></li>
@@ -36,8 +38,12 @@
     <article>
         <div id="profile">
             <div class="profile_box top_article-contents">
-                <%- include('tmp/profile/elements.ejs') %>
+                <%- include('api/mysite/profile/elements.ejs') %>
             </div>
+            <dl>
+                <dt>ブログ</dt>
+                <dd><a href="/blog">http://</a></dd>
+            </dl>
             <!--
             <div class="profile_plan-the-year none">
                 <h3><span class="js-toYear"></span>年の抱負</h3>
@@ -117,7 +123,7 @@
         <div id="contact">
             <div class="top_article-contents">
                 <!-- <h2>ご覧いただきありがとうございます。なんでもお気軽にご連絡くださいませ。</h2> -->
-                <h2>Thank you for visiting my site<br>Please feel free to ask and follow me</h2>
+                <p class="contact_greeting">Thank you for visiting my site<br>Please feel free to ask and follow me</p>
                 <address>
                     <dl>
                         <dt><i class="fa fa-home fa-2x" aria-hidden="true"></i></dt>
@@ -148,14 +154,10 @@
     </article>
 </section>
 
-<aside>
-</aside>
-
+</div>
 <footer>
   <small>&copy; <span class="js-toYear"></span> SatoruTanaka All rights reserved</small>
 </footer>
-
-</div>
 <!-- script -->
 <script type="text/javascript" src="js/top<%= extJs %>"></script>
 <script type="text/javascript" src="js/viewModel<%= extJs %>"></script>
