@@ -27,7 +27,6 @@
         <ul>
             <li class="current aaa bbb ccc"><a href="javascript: void(0);" data-nav-id="profile">Profile</a></li>
             <li class=""><a href="" data-nav-id="skill">skill</a></li>
-            <li class=""><a href="" data-nav-id="blog">Blog</a></li>
             <li class=""><a href="" data-nav-id="output">Output</a></li>
             <li class=""><a href="" data-nav-id="contact">Contact</a></li>
         </ul>
@@ -37,7 +36,7 @@
 
     <article>
         <div id="profile">
-            <div class="profile_box top_article-contents">
+            <div class="profile_box">
                 <%- include('api/mysite/profile/elements.ejs') %>
             </div>
             <dl>
@@ -69,15 +68,15 @@
                 </ul>
             </div>
             -->
+            <span class="paging">
+                <i class="switch-prev fa fa-chevron-circle-left fa-3x" aria-hidden="true"></i>
+                <i class="fa fa-circle point" aria-hidden="true"></i>
+                <i class="fa fa-circle-o" aria-hidden="true"></i>
+                <i class="switch-next fa fa-chevron-circle-right fa-3x" aria-hidden="true"></i>
+            </span>
         </div>
-        <span class="paging" style="bottom: 5px;left: 0;right: 0;">
-            <i class="switch-prev fa fa-chevron-circle-left fa-2x" aria-hidden="true"></i>
-            <i class="fa fa-circle point" aria-hidden="true"></i>
-            <i class="fa fa-circle-o" aria-hidden="true"></i>
-            <i class="switch-next fa fa-chevron-circle-right fa-2x" aria-hidden="true"></i>
-        </span>
         <div id="skill">
-            <div class="top_article-contents">
+            <div class="">
                 <ul>
                     <%
                     /* 1: 26px, 2: 52px, 3: 78px, 4: 104px, 5: 130px */
@@ -109,19 +108,13 @@
                 <p>Other : Handlebars, EJS, Backbone.js, ...etc</p>
             </div>
         </div>
-        <div id="blog">
-            <div class="top_article-contents">
-                <h2>ブログ、準備中</h2>
-                <!-- <img src="img/circle3.png" style="width: auto;"> -->
-            </div>
-        </div>
         <div id="output">
-            <div class="top_article-contents">
+            <div class="">
                 <h2>アウトプット、準備中</h2>
             </div>
         </div>
         <div id="contact">
-            <div class="top_article-contents">
+            <div class="">
                 <!-- <h2>ご覧いただきありがとうございます。なんでもお気軽にご連絡くださいませ。</h2> -->
                 <p class="contact_greeting">Thank you for visiting my site<br>Please feel free to ask and follow me</p>
                 <address>
