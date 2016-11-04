@@ -14,18 +14,15 @@
 @color-pink: #ff69B4;
 @color-silver: #c0c0c0;
 
-@15px: 15px;
-@20px: @20px;
-@50px: 50px;
+@navWidth: 20%;
 
 /* common */
-html {
+html, body, #container, #main-contents {
   height: 100%;
 }
 body {
     font-family: 'Poiret One', 'Meiryo', 'メイリオ', sans-serif;
     color: #222;
-    height: 100%;
 }
 ul {
   list-style-type: none;
@@ -54,16 +51,7 @@ h2 {
 }
 #container {
   min-width: 1000px;
-  height: 100%;
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
   padding: 82px 0;
-  background-color: #e0e0e0;
 }
 
 /* header, footer */
@@ -97,15 +85,14 @@ footer {
 /* main-contents */
 #main-contents {
   width: 100%;
-  height: 100%;
   display: box;
   display: -webkit-box;
   display: -moz-box;
-  /*overflow: hidden;*/
+  overflow: hidden;
 }
-/* nav */
+/* nav article */
 nav {
-  width: 25.6%;
+  width: @navWidth;
   background-color: #fff;
   padding: 48px 0;
   font-size: 24px;
@@ -123,17 +110,16 @@ nav {
   width: 1%;
   opacity: 0;
 }
-/* article */
 article {
-  width: 73.4%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.3);
-  overflow-y: scroll;
+  width: 99 - @navWidth;
+  background-color: @color-silver;
   position: relative;
+  overflow-y: scroll;
 
   & > div {
-    height: 100%;
-    padding: 48px @20px;
+    min-height: 500px;
+    margin: 48px 0;
+    padding: 0 20px;
   }
 }
 
@@ -143,23 +129,26 @@ article {
   .profile_box {
     opacity: 1.0;
     transition: opacity 1s linear 0s;
+    text-align: center;
+    margin-bottom: 30px;
   }
 
   .profile_elements {
-    height: 100%;
-    margin-bottom: @20px;
+    display: inline-block;
+    margin: 0 auto;
+    overflow: hidden;
 
     img {
       float: left;
       width: 150px;
-      margin-right: @50px;
-      margin-top: @20px;
+      margin-right: 50px;
+      margin-top: 20px;
     }
 
     .profile_elements-text {
       overflow: hidden;
       border-left: 5px solid #fff;
-      padding-left: @50px;
+      padding-left: 50px;
 
       h2 {
         font-size: 2em;
@@ -181,7 +170,7 @@ article {
 
       ul {
         li {
-          margin-top: @20px;
+          margin-top: 20px;
         }
       }
     }
@@ -227,7 +216,35 @@ article {
   }
 
   & > dl {
-    margin-bottom: 20px;
+    margin-top: 30px;
+
+    dt, dd {
+      text-align: center;
+    }
+
+    dt {
+      font-size: 1.5em;
+    }
+    dd {
+      a:hover {
+        opacity: 1;
+        text-decoration: underline; 
+      }
+    }
+  }
+
+  .paging {
+    display: block;
+    text-align: center;
+
+    .switch-prev {
+      margin-right: 15px;
+      opacity: 0;
+    }
+    .switch-next {
+      margin-left: 15px;
+      opacity: 1;
+    }
   }
 
   .profile_plan-the-year {
@@ -256,6 +273,7 @@ article {
   ul {
     border-left: 5px solid #fff;
     padding-left: 10px;
+    width: 500px;
 
     li {
       position: relative;
@@ -328,18 +346,5 @@ article {
   }
   .none {
     display: none !important;
-  }
-  .paging {
-    display: block;
-    text-align: center;
-
-    .switch-prev {
-      margin-right: @15px;
-      opacity: 0;
-    }
-    .switch-next {
-      margin-left: @15px;
-      opacity: 1;
-    }
   }
 }

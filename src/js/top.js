@@ -6,36 +6,38 @@ page.top = (function () {
 
       common.util.renderDate($('.js-toYear'), 'year');
 
-      var $navLi = $('nav li');
-      var $article = $('article');
-
+      var $navLi = $('nav li'), $article = $('article'), $profile = $('#profile'), $skill = $('#skill'), $output = $('#output'), $contact = $('#contact');
+      var startOffset = {
+        profile: $profile.getBoundingClientRect().top,
+        skill: $skill.getBoundingClientRect().top,
+        output: $output.getBoundingClientRect().top,
+        contact: $contact.getBoundingClientRect().top
+      };
       $article.addEventListener('scroll', function () {
         Array.prototype.forEach.call($navLi, function (li) {
           li.classList.remove('current');
         });
-        //0~1348
-        if (this.scrollTop < 270) {
-          //profile
+        if (this.scrollTop < startOffset.profile) {
+          // profile
           $navLi[0].classList.add('current');
-        } else if (270 < this.scrollTop && this.scrollTop < 540) {
-          //blog
+        } else if (startOffset.profile < this.scrollTop && this.scrollTop < startOffset.skill) {
+          // skill
           $navLi[1].classList.add('current');
-        } else if (540 < this.scrollTop && this.scrollTop < 810) {
-          //output
+        } else if (startOffset.skill < this.scrollTop && this.scrollTop < startOffset.output) {
+          // output
           $navLi[2].classList.add('current');
-        } else if (810 < this.scrollTop && this.scrollTop < 1080) {
-          //package
+        } else if (startOffset.output < this.scrollTop && this.scrollTop < startOffset.contact) {
+          // contact
           $navLi[3].classList.add('current');
-        } else if (1080 < this.scrollTop && this.scrollTop <= 1348) {
-          //contact
-          $navLi[4].classList.add('current');
         }
       });
+      /*
       var $skillLi = $('#skill li');
       Array.prototype.forEach.call($skillLi, function (li) {
         var circleWidth = li.dataset.circle;
         li.setAttribute('data-content', '');
       });
+      */
 
       xhr.onreadystatechange = function () {
 
