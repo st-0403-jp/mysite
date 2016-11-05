@@ -14,7 +14,7 @@
 @color-pink: #ff69B4;
 @color-silver: #c0c0c0;
 
-@navWidth: 20%;
+@navWidth: 15%;
 
 /* common */
 html, body, #container, #main-contents {
@@ -96,7 +96,7 @@ nav {
   background-color: #fff;
   padding: 48px 0;
   font-size: 24px;
-  box-shadow: 2px 0px 2px 2px #222;
+  //box-shadow: 2px 0px 2px 2px #222;
 
   ul {
     li {
@@ -107,11 +107,11 @@ nav {
 }
 /* dummy */
 .dummy-box_1 {
-  width: 1%;
+  width: 0;
   opacity: 0;
 }
 article {
-  width: 99 - @navWidth;
+  width: 100 - @navWidth;
   background-color: @color-silver;
   position: relative;
   overflow-y: scroll;
@@ -270,33 +270,36 @@ article {
   }
 }
 #skill {
-  ul {
-    border-left: 5px solid #fff;
-    padding-left: 10px;
+  .skill_list {
     width: 500px;
+    margin: 0 auto;
+    ul {
+      border-left: 5px solid #fff;
+      padding-left: 10px;
 
-    li {
-      position: relative;
-      font-size: 1.5em;
+      li {
+        position: relative;
+        font-size: 1.5em;
 
-      &::after {
-        content: attr(data-content);
-        display: inline-block;
-        //width: 78px;
-        height: 26px;
-        overflow: hidden;
-        background-size: 130px 100%;
-        background-repeat: no-repeat;
-        background-image: url('../img/circle3.png');
-        position: absolute;
-        top: 14%;
-        right: 0;
+        &::after {
+          content: attr(data-content);
+          display: inline-block;
+          //width: 78px;
+          height: 26px;
+          overflow: hidden;
+          background-size: 130px 100%;
+          background-repeat: no-repeat;
+          background-image: url('../img/circle3.png');
+          position: absolute;
+          top: 14%;
+          right: 0;
+        }
       }
     }
-  }
-  p {
-    border-left: 5px solid #222;
-    padding-left: 10px;
+    p {
+      border-left: 5px solid #222;
+      padding-left: 10px;
+    }
   }
 }
 #contact {
