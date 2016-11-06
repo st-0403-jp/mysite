@@ -134,8 +134,11 @@ article {
     margin-bottom: 30px;
   }
 
-  .profile_elements {
+  .profile_elements, .profile_history {
     display: inline-block;
+  }
+
+  .profile_elements {
     margin: 0 auto;
     overflow: hidden;
 
@@ -179,6 +182,7 @@ article {
 
   .profile_history {
     height: 100%;
+    text-align: left;
 
     ul {
       li {
@@ -295,6 +299,10 @@ article {
           position: absolute;
           top: 14%;
           right: 0;
+        }
+
+        &:last-child {
+          font-size: 0.75em;
         }
       }
     }

@@ -97,11 +97,11 @@ gulp.task('buildEjs', function () {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('build', ['clean'], function () {
+gulp.task('build', ['cleanDist'], function () {
 
   // ejs
   ejsData['extJs'] = '.min.js';
-  gulp.src(['src/ejs/*.ejs', 'src/ejs/tmp/profile/*.ejs'], {base: 'src/ejs'})
+  gulp.src(['src/ejs/*.ejs', 'src/ejs/api/mysite/profile/*.ejs'], {base: 'src/ejs'})
     .pipe(ejs(ejsData, {ext: '.html'}))
     .pipe(gulp.dest('dist'));
 
