@@ -1,33 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta lang="ja">
-    <!-- <link rel="stylesheet" type="text/css" href="css/common.css"> -->
-    <link rel="stylesheet" type="text/css" href="css/common.css">
-    <!-- <script type="text/javascript" src="js/js-static/underscore.js"></script> -->
-    <!-- <script type="text/javascript" src="js/js-static/jquery-1.11.2.min.js"></script> -->
-    <!-- <script type="text/javascript" src="bower_components/less/dist/less.js"></script> -->
-    <script type="text/javascript" src="js/global<%= extJs %>"></script>
-    <script type="text/javascript" src="js/common.util<%= extJs %>"></script>
-    <title>Portfolio by Satoru Tanaka</title>
+<meta charset="utf-8">
+<meta name="keyword" content="田中暁, Satoru Tanaka, portfolio, HTML, CSS, JavaScript, node, gulp, less, ejs, front end engineer, フロントエンドエンジニア, Web, ラーメン, 車, 葛西, 江戸川区">
+<meta name="description" content="Webで豊かな生活を送ろうをテーマに、クリエイター活動をしています。ラーメンが大好きですw主にWebの技術でフロントエンドエンジニア、Webデザインなどです。詩を書いたり音楽を創るのも気分転換にしています。">
+<meta name="author" content="田中暁">
+<meta property="og:site_name" content="Portfolio by Satoru Tanaka">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://satoru-t-0403.boo.jp/mysite/">
+<meta property="og:description" content="Webで豊かな生活を送ろうをテーマに、クリエイター活動をしています。ラーメンが大好きですw主にWebの技術でフロントエンドエンジニア、Webデザインなどです。詩を書いたり音楽を創るのも気分転換にしています。">
+<meta property="og:image" content="http://satoru-t-0403.boo.jp/myblog/img/me.jpg">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<!-- <script type="text/javascript" src="js/js-static/underscore.js"></script> -->
+<!-- <script type="text/javascript" src="js/js-static/jquery-1.11.2.min.js"></script> -->
+<!-- <script type="text/javascript" src="bower_components/less/dist/less.js"></script> -->
+<script type="text/javascript" src="js/global<%= extJs %>"></script>
+<script type="text/javascript" src="js/common.util<%= extJs %>"></script>
+<title>Portfolio by Satoru Tanaka</title>
 </head>
 
 <body>
-<!-- container -->
-<div id="container">
 <header>
     <h1>Portfolio by Satoru Tanaka</h1>
 </header>
+<!-- container -->
+<div id="container">
 
 <section id="main-contents">
+    <div class="dummy-box_1"></div>
+
     <nav>
         <ul>
-            <li class="current aaa bbb ccc"><a href="javascript: void(0);" data-nav-id="profile">Profile</a></li>
-            <li class=""><a href="" data-nav-id="skill">skill</a></li>
-            <li class=""><a href="" data-nav-id="blog">Blog</a></li>
-            <li class=""><a href="" data-nav-id="output">Output</a></li>
-            <li class=""><a href="" data-nav-id="contact">Contact</a></li>
+            <li class="current aaa bbb ccc"><a href="#profile" data-nav-id="profile">Profile</a></li>
+            <li class=""><a href="#skill" data-nav-id="skill">skill</a></li>
+            <li class=""><a href="#output" data-nav-id="output">Output</a></li>
+            <li class=""><a href="#contact" data-nav-id="contact">Contact</a></li>
         </ul>
     </nav>
 
@@ -35,9 +43,19 @@
 
     <article>
         <div id="profile">
-            <div class="profile_box top_article-contents">
-                <%- include('tmp/profile/elements.ejs') %>
+            <div class="profile_box">
+                <%- include('api/mysite/profile/elements.ejs') %>
             </div>
+            <span class="paging">
+                <i class="switch-prev fa fa-chevron-circle-left fa-3x" aria-hidden="true"></i>
+                <i class="fa fa-circle point" aria-hidden="true"></i>
+                <i class="fa fa-circle-o" aria-hidden="true"></i>
+                <i class="switch-next fa fa-chevron-circle-right fa-3x" aria-hidden="true"></i>
+            </span>
+            <dl>
+                <dt>My Blog</dt>
+                <dd><a href="/blog" target="_blank">http://satoru-t-0403.boo.jp/blog/</a></dd>
+            </dl>
             <!--
             <div class="profile_plan-the-year none">
                 <h3><span class="js-toYear"></span>年の抱負</h3>
@@ -64,14 +82,8 @@
             </div>
             -->
         </div>
-        <span class="paging" style="bottom: 5px;left: 0;right: 0;">
-            <i class="switch-prev fa fa-chevron-circle-left fa-2x" aria-hidden="true"></i>
-            <i class="fa fa-circle point" aria-hidden="true"></i>
-            <i class="fa fa-circle-o" aria-hidden="true"></i>
-            <i class="switch-next fa fa-chevron-circle-right fa-2x" aria-hidden="true"></i>
-        </span>
         <div id="skill">
-            <div class="top_article-contents">
+            <div class="skill_list">
                 <ul>
                     <%
                     /* 1: 26px, 2: 52px, 3: 78px, 4: 104px, 5: 130px */
@@ -79,10 +91,14 @@
                         data: [
                         {skill: 'HTML5', circleWidth: '130'},
                         {skill: 'CSS3', circleWidth:'130'},
-                        {skill: 'JavaScript', circleWidth: '104'},
-                        {skill: 'Node.js', circleWidth: '78'},
-                        {skill: 'Gulp', circleWidth: '78'},
-                        {skill: 'LESS', circleWidth: '78'}
+                        {skill: 'JavaScript', circleWidth: '130'},
+                        {skill: 'Gulp', circleWidth: '104'},
+                        {skill: 'LESS', circleWidth: '104'},
+                        {skill: 'Handlebars', circleWidth: '104'},
+                        {skill: 'EJS', circleWidth: '104'},
+                        {skill: 'NodeJS', circleWidth: '78'},
+                        {skill: 'Backbone.js', circleWidth: '78'},
+                        {skill: 'Git, Google Apps, Evernote, FontAwesome ...', circleWidth: ''}
                         ]
                     }
                     skillList.data.forEach(function (list, index) {
@@ -100,24 +116,19 @@
                     </li>
                     <% }); %>
                 </ul>
-                <p>Other : Handlebars, EJS, Backbone.js, ...etc</p>
-            </div>
-        </div>
-        <div id="blog">
-            <div class="top_article-contents">
-                <h2>ブログ、準備中</h2>
-                <!-- <img src="img/circle3.png" style="width: auto;"> -->
+                <p>I usual use these skills.</p>
+                <p>Always keep trying new things.</p>
             </div>
         </div>
         <div id="output">
-            <div class="top_article-contents">
+            <div class="">
                 <h2>アウトプット、準備中</h2>
             </div>
         </div>
         <div id="contact">
-            <div class="top_article-contents">
+            <div class="">
                 <!-- <h2>ご覧いただきありがとうございます。なんでもお気軽にご連絡くださいませ。</h2> -->
-                <h2>Thank you for visiting my site<br>Please feel free to ask and follow me</h2>
+                <p class="contact_greeting">Thank you for visiting my site<br>Please feel free to ask and follow me</p>
                 <address>
                     <dl>
                         <dt><i class="fa fa-home fa-2x" aria-hidden="true"></i></dt>
@@ -133,7 +144,7 @@
                     var contactList = {
                         data: [
                         {ele: '<i class="fa fa-facebook-square fa-5x" aria-hidden="true"></i>', link: 'https://www.facebook.com/satoru.tanaka.9480'},
-                        {ele: '<i class="fa fa-twitter-square fa-5x" aria-hidden="true"></i>', link: 'https://twitter.com/satoru_tanaka_'},
+                        {ele: '<i class="fa fa-twitter-square fa-5x" aria-hidden="true"></i>', link: 'https://twitter.com/sato272015'},
                         {ele: '<i class="fa fa-github fa-5x" aria-hidden="true"></i>', link: 'https://github.com/st-0403-jp'}
                         ]
                     }
@@ -148,14 +159,10 @@
     </article>
 </section>
 
-<aside>
-</aside>
-
+</div>
 <footer>
   <small>&copy; <span class="js-toYear"></span> SatoruTanaka All rights reserved</small>
 </footer>
-
-</div>
 <!-- script -->
 <script type="text/javascript" src="js/top<%= extJs %>"></script>
 <script type="text/javascript" src="js/viewModel<%= extJs %>"></script>
