@@ -74,6 +74,20 @@ page.top = (function () {
         xhr.abort();
       };
 
+      var switchProfile = function () {
+        if (!arguments) { return; }
+        var flg = arguments[arguments.length -1];
+        Array.prototype.forEach.call(arguments, function (elName, index, argArr) {
+          if (index === argArr.length - 1) { 
+            return;
+          }
+          $(elName).classList.add('none');
+          if (flg[index]) {
+            $(elName).classList.remove('none');
+          }
+        });
+      };
+
       //switch-nextクリック
       $('body').addEventListener('click', function (e) {
         if (e.path[0].classList.value.indexOf('switch-next') === -1 && e.path[0].classList.value.indexOf('switch-prev') === -1) {
@@ -100,7 +114,7 @@ page.top = (function () {
             }
           });
 
-          httpRequest('GET', '/api/mysite/profile/history.html', 'text/html');
+          //httpRequest('GET', '/api/mysite/profile/history.html', 'text/html');
         }
 
         if (!(currentTarget.classList.value.indexOf('switch-prev') === -1)) {
@@ -117,10 +131,11 @@ page.top = (function () {
             }
           });
 
-          httpRequest('GET', '/api/mysite/profile/elements.html', 'text/html');
+          //httpRequest('GET', '/api/mysite/profile/elements.html', 'text/html');
         }
 
         setTimeout(function () {
+          var flgArr = [];
           pageCircleClass.forEach(function (iClass, index, iClasses) {
             if (iClass.value.indexOf('fa-circle-o') === -1) {
               iClass.add('point');
@@ -134,11 +149,13 @@ page.top = (function () {
               } else {
                 rightArrow.style.opacity = '1.0';
               }
+              flgArr.push(true);
+            } else {
+              flgArr.push(false);
             }
           });
+          switchProfile('.profile_elements', '.profile_history', flgArr);
         }, 100);
-
-        $('.profile_box').style.opacity = 0;
 
       });
     }
