@@ -158,7 +158,19 @@
     </article>
 </section>
 <footer>
-  <small>&copy; <span class="js-toYear"></span> SatoruTanaka All rights reserved</small>
+    <div class="update">
+        <dl>
+            <% updateList.forEach(function (dl, i) {
+                if (i > 2) {
+                    return;
+                }
+            %>
+            <dt><%= dl.dt %></dt>
+            <dd><%- dl.dd %></dd>
+            <% }); %>
+        </dl>
+    </div>
+    <small>&copy; <span class="js-toYear"></span> SatoruTanaka All rights reserved</small>
 </footer>
 </div>
 <!-- script -->

@@ -19,7 +19,16 @@ var less = require('gulp-less');
 var json = JSON.parse(fs.readFileSync('./json/test.json'));
 
 var ejsData = {};
-
+/**
+  * お知らせ
+  * 3件まで
+  */
+ejsData['updateList'] = [
+  {
+    dt: '2016.12.07',
+    dd: 'お知らせ機能を追加'
+  }
+];
 /*
  * {buffer: true, read: true, base: ''} gulp.src options dfault
  */

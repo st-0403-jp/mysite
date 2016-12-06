@@ -24,7 +24,7 @@ body {
     font-family: 'Montserrat', 'Meiryo', 'メイリオ', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'helvetica', 'arial', sans-serif;
     color: #222;
 }
-ul {
+ul, ol {
   list-style-type: none;
 }
 a {
@@ -72,10 +72,29 @@ header {
   }
 }
 footer {
-  text-align: right;
-  height: 82px;
   bottom: 0;
   left: 0;
+  overflow: hidden;
+
+  .update {
+    max-width: 650px;
+    dl {
+      font-size: 0.8em;
+      dt, dd {
+        display: inline-block;
+        height: 20px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      dt {
+        width: 80px;
+      }
+      dd {
+        width: 550px;
+      }
+    }
+  }
 
   small {
     display: inline-block;
