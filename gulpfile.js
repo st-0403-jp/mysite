@@ -18,7 +18,13 @@ var less = require('gulp-less');
 
 var json = JSON.parse(fs.readFileSync('./json/test.json'));
 
+/**
+  * @description
+  * extJs: .js or .min.js
+  * updateList: お知らせ
+  */
 var ejsData = {};
+
 /**
   * お知らせ
   * 3件まで
