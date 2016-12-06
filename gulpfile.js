@@ -85,7 +85,7 @@ gulp.task('img', function () {
 
 gulp.task('serve', ['ejs', 'less', 'js', 'img'], function () {
   gulp.watch(['src/ejs/*.ejs', 'src/less/*.less', 'src/js/*.js'], ['ejs', 'less', 'js']);
-  gulp.watch(['src/ejs/api/mysite/profile/*.ejs'], ['ejs']);
+  gulp.watch(['src/ejs/includes/profile/*.ejs'], ['ejs']);
   gulp.watch(['src/img/*.jpg', 'src/img/*.png'], ['img']);
   gulp.src('mock')
     .pipe(server({
