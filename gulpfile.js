@@ -18,8 +18,23 @@ var less = require('gulp-less');
 
 var json = JSON.parse(fs.readFileSync('./json/test.json'));
 
+/**
+  * @description
+  * extJs: .js or .min.js
+  * updateList: お知らせ
+  */
 var ejsData = {};
 
+/**
+  * お知らせ
+  * 3件まで
+  */
+ejsData['updateList'] = [
+  {
+    dt: '2016.12.07',
+    dd: 'お知らせ機能を追加'
+  }
+];
 /*
  * {buffer: true, read: true, base: ''} gulp.src options dfault
  */
@@ -44,7 +59,7 @@ setTimeout(function () {
 */
 gulp.task('ejs', function () {
   ejsData['extJs'] = '.js';
-  return gulp.src(['src/ejs/*.ejs', 'src/ejs/api/mysite/profile/*.ejs'], {base: 'src/ejs'})
+  return gulp.src(['src/ejs/*.ejs'], {base: 'src/ejs'})
     .pipe(ejs(ejsData, {ext: '.html'}))
     .pipe(gulp.dest('mock'));
 });
@@ -70,7 +85,7 @@ gulp.task('img', function () {
 
 gulp.task('serve', ['ejs', 'less', 'js', 'img'], function () {
   gulp.watch(['src/ejs/*.ejs', 'src/less/*.less', 'src/js/*.js'], ['ejs', 'less', 'js']);
-  gulp.watch(['src/ejs/api/mysite/profile/*.ejs'], ['ejs']);
+  gulp.watch(['src/ejs/includes/profile/*.ejs'], ['ejs']);
   gulp.watch(['src/img/*.jpg', 'src/img/*.png'], ['img']);
   gulp.src('mock')
     .pipe(server({
@@ -91,17 +106,11 @@ gulp.task('cleanDist', function () {
     .pipe(clean());
 });
 
-gulp.task('buildEjs', function () {
-  return gulp.src(['src/ejs/*.ejs', 'src/ejs/tmp/profile/*.ejs'], {base: 'src/ejs'})
-    .pipe(ejs(null, {ext: '.html'}))
-    .pipe(gulp.dest('dist'));
-});
-
 gulp.task('build', ['cleanDist'], function () {
 
   // ejs
   ejsData['extJs'] = '.min.js';
-  gulp.src(['src/ejs/*.ejs', 'src/ejs/api/mysite/profile/*.ejs'], {base: 'src/ejs'})
+  gulp.src(['src/ejs/*.ejs'], {base: 'src/ejs'})
     .pipe(ejs(ejsData, {ext: '.html'}))
     .pipe(gulp.dest('dist'));
 

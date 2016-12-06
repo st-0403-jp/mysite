@@ -42,8 +42,8 @@
     <article>
         <div id="profile">
             <div class="profile_box">
-                <%- include('api/mysite/profile/elements.ejs') %>
-                <%- include('api/mysite/profile/history.ejs') %>
+                <%- include('includes/profile/elements.ejs') %>
+                <%- include('includes/profile/history.ejs') %>
             </div>
             <span class="paging">
                 <i class="switch-prev fa fa-chevron-circle-left fa-3x" aria-hidden="true"></i>
@@ -158,7 +158,19 @@
     </article>
 </section>
 <footer>
-  <small>&copy; <span class="js-toYear"></span> SatoruTanaka All rights reserved</small>
+    <div class="update">
+        <dl>
+            <% updateList.forEach(function (dl, i) {
+                if (i > 2) {
+                    return;
+                }
+            %>
+            <dt><%= dl.dt %></dt>
+            <dd><%- dl.dd %></dd>
+            <% }); %>
+        </dl>
+    </div>
+    <small>&copy; <span class="js-toYear"></span> SatoruTanaka All rights reserved</small>
 </footer>
 </div>
 <!-- script -->
