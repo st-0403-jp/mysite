@@ -44,7 +44,7 @@ setTimeout(function () {
 */
 gulp.task('ejs', function () {
   ejsData['extJs'] = '.js';
-  return gulp.src(['src/ejs/*.ejs', 'src/ejs/api/mysite/profile/*.ejs'], {base: 'src/ejs'})
+  return gulp.src(['src/ejs/*.ejs'], {base: 'src/ejs'})
     .pipe(ejs(ejsData, {ext: '.html'}))
     .pipe(gulp.dest('mock'));
 });
@@ -91,17 +91,11 @@ gulp.task('cleanDist', function () {
     .pipe(clean());
 });
 
-gulp.task('buildEjs', function () {
-  return gulp.src(['src/ejs/*.ejs', 'src/ejs/tmp/profile/*.ejs'], {base: 'src/ejs'})
-    .pipe(ejs(null, {ext: '.html'}))
-    .pipe(gulp.dest('dist'));
-});
-
 gulp.task('build', ['cleanDist'], function () {
 
   // ejs
   ejsData['extJs'] = '.min.js';
-  gulp.src(['src/ejs/*.ejs', 'src/ejs/api/mysite/profile/*.ejs'], {base: 'src/ejs'})
+  gulp.src(['src/ejs/*.ejs'], {base: 'src/ejs'})
     .pipe(ejs(ejsData, {ext: '.html'}))
     .pipe(gulp.dest('dist'));
 
