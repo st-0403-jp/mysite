@@ -30,14 +30,12 @@
 
     <nav>
         <ul>
-            <li class="current aaa bbb ccc"><a href="#profile" data-nav-id="profile">Profile</a></li>
-            <li class=""><a href="#skill" data-nav-id="skill">skill</a></li>
-            <li class=""><a href="#output" data-nav-id="output">Output</a></li>
-            <li class=""><a href="#contact" data-nav-id="contact">Contact</a></li>
+            <li class="current"><h2><a href="#profile" data-nav-id="profile">Profile</a></h2></li>
+            <li class=""><h2><a href="#skill" data-nav-id="skill">skill</a></h2></li>
+            <li class=""><h2><a href="#output" data-nav-id="output">Output</a></h2></li>
+            <li class=""><h2><a href="#contact" data-nav-id="contact">Contact</a></h2></li>
         </ul>
     </nav>
-
-    <div class="dummy-box_1"></div>
 
     <article>
         <div id="profile">
@@ -45,16 +43,14 @@
                 <%- include('includes/profile/elements.ejs') %>
                 <%- include('includes/profile/history.ejs') %>
             </div>
-            <span class="paging">
+            <span class="paging mb_30">
                 <i class="switch-prev fa fa-chevron-circle-left fa-3x" aria-hidden="true"></i>
                 <i class="fa fa-circle point" aria-hidden="true"></i>
                 <i class="fa fa-circle-o" aria-hidden="true"></i>
                 <i class="switch-next fa fa-chevron-circle-right fa-3x" aria-hidden="true"></i>
             </span>
-            <dl>
-                <dt>My Blog</dt>
-                <dd><a href="/blog" target="_blank">http://sssatoru-t.info/blog/</a></dd>
-            </dl>
+            <h3 class="cmn-text_01">ブログを書いています。Web関係やラーメンの記事です。</h3>
+            <p class="text-align_c pb_30"><a href="/blog" target="_blank"><img src="img/sssweblog.png"></a></p>
             <!--
             <div class="profile_plan-the-year none">
                 <h3><span class="js-toYear"></span>年の抱負</h3>
@@ -105,7 +101,7 @@
             </div>
         </div>
         <div id="output">
-            <p>携わったプロダクトや個人で制作したものを紹介します。</p>
+            <p class="cmn-text_01">携わったプロダクトや個人で制作したものを紹介します。</p>
             <ul>
                 <li>
                     <h3>マルガリータに乾杯を！</h3>
