@@ -49,6 +49,10 @@ ejsData['skillList'] = [
   */
 ejsData['updateList'] = [
   {
+    dt: '2016.12.16',
+    dd: 'クロスブラウザ対応'
+  },
+  {
     dt: '2016.12.07',
     dd: 'お知らせ機能を追加'
   }
