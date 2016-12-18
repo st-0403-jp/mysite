@@ -88,74 +88,69 @@ page.top = (function () {
         });
       };
 
-      //switch-nextクリック
+      // switch-nextクリック
       $('body').addEventListener('click', function (e) {
-        if (e.path[0].classList.value.indexOf('switch-next') === -1 && e.path[0].classList.value.indexOf('switch-prev') === -1) {
-          return false;
-        }
-        //必要DOM
-        var currentTarget = e.path[0];
-        var currentParent = e.path[1];
-        var leftArrow = currentParent.firstElementChild;
-        var rightArrow = currentParent.lastElementChild;
+        if (e.target.className.indexOf('switch-next') !== -1 || e.target.className.indexOf('switch-prev') !== -1) {
+          //必要DOM
+          var currentTarget = e.target;
+          var currentParent = e.target.parentNode;
+          var leftArrow = currentParent.firstElementChild;
+          var rightArrow = currentParent.lastElementChild;
 
-        var pageCircleClass = [];
-        if (!(currentTarget.classList.value.indexOf('switch-next') === -1)) {
-          Array.prototype.forEach.call(currentParent.children, function (i, index, is) {
-            if (!(index === 0 || index === is.length - 1)) {
-              if (!(i.classList.value.indexOf('point') === -1 || index === is.length - 2)) {
-                i.classList.remove('point');
-                i.classList.remove('fa-circle');
-                i.classList.add('fa-circle-o');
-                i.nextElementSibling.classList.remove('fa-circle-o');
-                i.nextElementSibling.classList.add('fa-circle');
+          var circles = [];
+          if (!(currentTarget.className.indexOf('switch-next') === -1)) {
+            Array.prototype.forEach.call(currentParent.children, function (i, index, is) {
+              if (!(index === 0 || index === is.length - 1)) {
+                if (!(i.className.indexOf('point') === -1 || index === is.length - 2)) {
+                  i.classList.remove('point');
+                  i.classList.remove('fa-circle');
+                  i.classList.add('fa-circle-o');
+                  i.nextElementSibling.classList.remove('fa-circle-o');
+                  i.nextElementSibling.classList.add('fa-circle');
+                }
+                circles.push(i);
               }
-              pageCircleClass.push(i.classList);
-            }
-          });
+            });
+          }
 
-          //httpRequest('GET', '/api/mysite/profile/history.html', 'text/html');
-        }
-
-        if (!(currentTarget.classList.value.indexOf('switch-prev') === -1)) {
-          Array.prototype.forEach.call(currentParent.children, function (i, index, is) {
-            if (!(index === 0 || index === is.length - 1)) {
-              if (!(i.classList.value.indexOf('point') === -1 || index === 1)) {
-                i.classList.remove('point');
-                i.classList.remove('fa-circle');
-                i.classList.add('fa-circle-o');
-                i.previousElementSibling.classList.remove('fa-circle-o');
-                i.previousElementSibling.classList.add('fa-circle');
+          if (!(currentTarget.className.indexOf('switch-prev') === -1)) {
+            Array.prototype.forEach.call(currentParent.children, function (i, index, is) {
+              if (!(index === 0 || index === is.length - 1)) {
+                if (!(i.className.indexOf('point') === -1 || index === 1)) {
+                  i.classList.remove('point');
+                  i.classList.remove('fa-circle');
+                  i.classList.add('fa-circle-o');
+                  i.previousElementSibling.classList.remove('fa-circle-o');
+                  i.previousElementSibling.classList.add('fa-circle');
+                }
+                circles.push(i);
               }
-              pageCircleClass.push(i.classList);
-            }
-          });
+            });
+          }
 
-          //httpRequest('GET', '/api/mysite/profile/elements.html', 'text/html');
-        }
-
-        setTimeout(function () {
-          var flgArr = [];
-          pageCircleClass.forEach(function (iClass, index, iClasses) {
-            if (iClass.value.indexOf('fa-circle-o') === -1) {
-              iClass.add('point');
-              if (index === 0) {
-                leftArrow.style.opacity = '0';
+          setTimeout(function () {
+            var flgArr = [];
+            circles.forEach(function (circle, index, circles) {
+              if (circle.className.indexOf('fa-circle-o') === -1) {
+                circle.classList.add('point');
+                if (index === 0) {
+                  leftArrow.style.opacity = '0';
+                } else {
+                  leftArrow.style.opacity = '1.0';
+                }
+                if (index === circles.length - 1) {
+                  rightArrow.style.opacity = '0';
+                } else {
+                  rightArrow.style.opacity = '1.0';
+                }
+                flgArr.push(true);
               } else {
-                leftArrow.style.opacity = '1.0';
+                flgArr.push(false);
               }
-              if (index === iClasses.length - 1) {
-                rightArrow.style.opacity = '0';
-              } else {
-                rightArrow.style.opacity = '1.0';
-              }
-              flgArr.push(true);
-            } else {
-              flgArr.push(false);
-            }
-          });
-          switchProfile('.profile_elements', '.profile_history', flgArr);
-        }, 100);
+            });
+            switchProfile('.profile_elements', '.profile_history', flgArr);
+          }, 100);
+        }
 
       });
     }

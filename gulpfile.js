@@ -26,10 +26,32 @@ var json = JSON.parse(fs.readFileSync('./json/test.json'));
 var ejsData = {};
 
 /**
+  * スキルセット
+  * 9件+1件
+  * @circle個数
+  * 1: 26px, 2: 52px, 3: 78px, 4: 104px, 5: 130px
+  */
+ejsData['skillList'] = [
+  {skill: 'HTML5', circleWidth: '130'},
+  {skill: 'CSS3', circleWidth:'130'},
+  {skill: 'JavaScript', circleWidth: '130'},
+  {skill: 'Gulp', circleWidth: '104'},
+  {skill: 'LESS', circleWidth: '78'},
+  {skill: 'Handlebars', circleWidth: '78'},
+  {skill: 'EJS', circleWidth: '78'},
+  {skill: 'NodeJS', circleWidth: '52'},
+  {skill: 'Backbone.js', circleWidth: '26'},
+  {skill: 'Git, Google Apps, Evernote, FontAwesome ...', circleWidth: ''}
+];
+/**
   * お知らせ
   * 3件まで
   */
 ejsData['updateList'] = [
+  {
+    dt: '2016.12.16',
+    dd: 'クロスブラウザ対応'
+  },
   {
     dt: '2016.12.07',
     dd: 'お知らせ機能を追加'
