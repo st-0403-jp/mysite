@@ -7,37 +7,33 @@ page.top = (function () {
       common.util.renderDate($('.js-toYear'), 'year');
 
       var $navLi = $('nav li'), $article = $('article'), $profile = $('#profile'), $skill = $('#skill'), $output = $('#output'), $contact = $('#contact');
+      var articleTop = $article.getBoundingClientRect().top;
       var startOffset = {
         profile: $profile.getBoundingClientRect().top,
         skill: $skill.getBoundingClientRect().top,
         output: $output.getBoundingClientRect().top,
         contact: $contact.getBoundingClientRect().top
       };
+      var articleScrollTop;
       $article.addEventListener('scroll', function () {
         Array.prototype.forEach.call($navLi, function (li) {
           li.classList.remove('current');
         });
-        if (this.scrollTop < startOffset.profile) {
+        articleScrollTop = this.scrollTop - articleTop;
+        if (articleScrollTop < startOffset.profile) {
           // profile
           $navLi[0].classList.add('current');
-        } else if (startOffset.profile < this.scrollTop && this.scrollTop < startOffset.skill) {
+        } else if (startOffset.profile < articleScrollTop && articleScrollTop < startOffset.skill) {
           // skill
           $navLi[1].classList.add('current');
-        } else if (startOffset.skill < this.scrollTop && this.scrollTop < startOffset.output) {
+        } else if (startOffset.skill < articleScrollTop && articleScrollTop < startOffset.output) {
           // output
           $navLi[2].classList.add('current');
-        } else if (startOffset.output < this.scrollTop && this.scrollTop < startOffset.contact) {
+        } else if (startOffset.output < articleScrollTop && articleScrollTop < startOffset.contact) {
           // contact
           $navLi[3].classList.add('current');
         }
       });
-      /*
-      var $skillLi = $('#skill li');
-      Array.prototype.forEach.call($skillLi, function (li) {
-        var circleWidth = li.dataset.circle;
-        li.setAttribute('data-content', '');
-      });
-      */
 
       xhr.onreadystatechange = function () {
 
