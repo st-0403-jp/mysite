@@ -37,11 +37,12 @@ ejsData['skillList'] = [
   {skill: 'JavaScript', circleWidth: '130'},
   {skill: 'Gulp', circleWidth: '104'},
   {skill: 'LESS', circleWidth: '78'},
+  {skill: 'FontAwesome', circleWidth: '78'},
   {skill: 'Handlebars', circleWidth: '78'},
   {skill: 'EJS', circleWidth: '78'},
   {skill: 'NodeJS', circleWidth: '52'},
-  {skill: 'Backbone.js', circleWidth: '26'},
-  {skill: 'Git, Google Apps, Evernote, FontAwesome ...', circleWidth: ''}
+  {skill: 'Backbone', circleWidth: '26'},
+  {skill: 'Git, Google Apps, Evernote, Trello ...', circleWidth: ''}
 ];
 /**
   * お知らせ
