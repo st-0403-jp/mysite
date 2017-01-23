@@ -102,12 +102,17 @@ gulp.task('ejs', function () {
     .pipe(gulp.dest('mock'));
 });
 
-gulp.task('cssLib', function () {
-  return gulp.src(['src/less/lib/*.css', 'src/less/fonts/*'], {base: 'src/less'})
-    .pipe(gulp.dest('mock/css'));
+gulp.task('lib', function () {
+  return gulp.src(['src/lib/*'])
+    .pipe(gulp.dest('mock/lib'));
 });
 
-gulp.task('less', ['cssLib'], function () {
+gulp.task('fonts', function () {
+  return gulp.src(['src/fonts/*'])
+    .pipe(gulp.dest('mock/fonts'));
+});
+
+gulp.task('less', ['fonts'], function () {
   return gulp.src(['src/less/*.less'])
     .pipe(less())
     .pipe(gulp.dest('mock/css'));
@@ -121,7 +126,7 @@ gulp.task('img', function () {
   return gulp.src(['src/img/*.jpg', 'src/img/*.png']).pipe(gulp.dest('mock/img'));
 });
 
-gulp.task('serve', ['ejs', 'less', 'js', 'img'], function () {
+gulp.task('serve', ['ejs', 'less', 'js', 'img', 'lib'], function () {
   gulp.watch(['src/ejs/*.ejs', 'src/less/*.less', 'src/js/*.js'], ['ejs', 'less', 'js']);
   gulp.watch(['src/ejs/includes/profile/*.ejs'], ['ejs']);
   gulp.watch(['src/img/*.jpg', 'src/img/*.png'], ['img']);
@@ -144,7 +149,7 @@ gulp.task('cleanDist', function () {
     .pipe(clean());
 });
 
-gulp.task('build', ['cleanDist'], function () {
+gulp.task('build', function () {
 
   // ejs
   ejsData['extJs'] = '.min.js';
@@ -167,12 +172,12 @@ gulp.task('build', ['cleanDist'], function () {
     .pipe(gulp.dest('dist/css'));
 
   // lib
-  gulp.src(['src/less/lib/*.css'])
-    .pipe(gulp.dest('dist/css/lib'));
+  gulp.src(['src/lib/*'])
+    .pipe(gulp.dest('dist/lib'));
 
   // fonts
-  gulp.src(['src/less/fonts/*'])
-    .pipe(gulp.dest('dist/css/fonts'));
+  gulp.src(['src/fonts/*'])
+    .pipe(gulp.dest('dist/fonts'));
 
   // js
   gulp.src(['src/js/*.js'])
