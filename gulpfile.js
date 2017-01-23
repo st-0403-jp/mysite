@@ -21,9 +21,20 @@ var json = JSON.parse(fs.readFileSync('./json/test.json'));
 /**
   * @description
   * extJs: .js or .min.js
+  * toYear: マルシー日付
+  * skillList: スキルセット
   * updateList: お知らせ
   */
 var ejsData = {};
+
+/**
+  * マルシー日付
+  * 年が変わって修正していたら
+  * @year: String
+  */
+ejsData['toYear'] = {
+  year: '2017'
+};
 
 /**
   * スキルセット
