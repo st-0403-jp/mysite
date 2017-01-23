@@ -4,7 +4,7 @@ page.top = (function () {
   return {
     execute: function () {
 
-      common.util.renderDate($('.js-toYear'), 'year');
+      // common.util.renderDate($('.js-toYear'), 'year');
 
       var $navLi = $('nav li'), $article = $('article'), $profile = $('#profile'), $skill = $('#skill'), $output = $('#output'), $contact = $('#contact');
       var articleTop = $article.getBoundingClientRect().top;
