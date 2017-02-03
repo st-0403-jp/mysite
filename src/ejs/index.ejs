@@ -16,20 +16,20 @@
 </script>
 <head>
 <meta charset="utf-8">
-<meta name="keywords" content="田中暁, Satoru Tanaka, portfolio, HTML, CSS, JavaScript, js, JS, NodeJS, Node, node, GulpJS, gulp, LESS, EJS, front end engineer, フロントエンドエンジニア, Web, ラーメン, 車, 葛西, 江戸川区">
-<meta name="description" content="Webで豊かな生活を送ろうをテーマに、クリエイター活動をしています。ラーメンが大好きですw主にWebの技術でフロントエンドエンジニア、Webデザインなどです。詩を書いたり音楽を創るのも気分転換にしています。">
+<meta name="keywords" content="田中暁, Satoru Tanaka, portfolio, HTML, CSS, JavaScript, js, JS, NodeJS, Node, node, GulpJS, gulp, LESS, EJS, Evernote, front end engineer, フロントエンドエンジニア, Web, ラーメン, 車, 葛西, 江戸川区">
+<meta name="description" content="Webで豊かな生活を送ろうをテーマに、クリエイターをしています。ラーメンが大好きです。主な職能はフロントエンドエンジニア、Webデザインなどです。詩を書いたり音楽を創るのも気分転換にしています。">
 <meta name="author" content="田中暁">
 <meta property="og:site_name" content="Portfolio by Satoru Tanaka">
 <meta property="og:type" content="website">
 <meta property="og:url" content="http://sssatoru-t.info/portfolio/">
-<meta property="og:description" content="Webで豊かな生活を送ろうをテーマに、クリエイター活動をしています。ラーメンが大好きですw主にWebの技術でフロントエンドエンジニア、Webデザインなどです。詩を書いたり音楽を創るのも気分転換にしています。">
+<meta property="og:description" content="Webで豊かな生活を送ろうをテーマに、クリエイターをしています。ラーメンが大好きです。主な職能はフロントエンドエンジニア、Webデザインなどです。詩を書いたり音楽を創るのも気分転換にしています。">
 <meta property="og:image" content="http://sssatoru-t.info/portfolio/img/me.jpg">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="css/common.css">
 <script type="text/javascript" src="lib/jquery.min.js"></script><!-- #2.1.0 -->
 <script type="text/javascript" src="js/global<%= extJs %>"></script>
 <script type="text/javascript" src="js/common.util<%= extJs %>"></script>
-<title>Portfolio by Satoru Tanaka</title>
+<title>田中暁_Portfolio</title>
 </head>
 
 <body>
@@ -37,7 +37,7 @@
 <header>
     <h1>Portfolio by Satoru Tanaka</h1>
 </header>
-<section id="main-contents">
+<main>
     <nav>
         <ul>
             <li class="current"><h2><a href="#profile" data-nav-id="profile">Profile</a></h2></li>
@@ -46,8 +46,8 @@
             <li class=""><h2><a href="#contact" data-nav-id="contact">Contact</a></h2></li>
         </ul>
     </nav>
-    <article>
-        <div id="profile">
+    <section id="contents-wrap">
+        <article id="profile">
             <h3 class="cmn-text_01">よろしくお願いします！</h3>
             <div class="profile_box">
                 <%- include('includes/profile/elements.ejs') %>
@@ -59,10 +59,8 @@
                 <i class="fa fa-circle-o" aria-hidden="true"></i>
                 <i class="switch-next fa fa-chevron-circle-right fa-3x" aria-hidden="true"></i>
             </span>
-            <h3 class="cmn-text_01">ブログを書いています。Web関係やラーメンの記事です。</h3>
-            <p class="text-align_c pb_30"><a href="/blog" target="_blank"><img src="img/sssweblog.png"></a></p>
-        </div>
-        <div id="skill">
+        </article>
+        <article id="skill">
             <h3 class="cmn-text_01">よく使う言語、ライブラリ、ツールです。</h3>
             <div class="skill_list">
                 <ul>
@@ -83,34 +81,20 @@
                     <% }); %>
                 </ul>
             </div>
-        </div>
-        <div id="output">
-            <h3 class="cmn-text_01">携わったプロダクトや個人で制作したものを紹介します。</h3>
+        </article>
+        <article id="output">
+            <h3 class="cmn-text_01">制作したものを紹介します。</h3>
             <ul>
                 <li>
-                    <h4>マルガリータに乾杯を！</h4>
+                    <h4>さささWeblog</h4>
                     <div class="output-img-wrap">
-                        <img src="img/margarita.png">
+                        <img src="img/sssweblog.png">
                     </div>
-                    <p>映画の公式サイト。会社の受託案件でコーダーとして携わらせていただきました。フロントを担当。</p>
-                </li>
-                <li>
-                    <h4>読書のお時間です</h4>
-                    <div class="output-img-wrap">
-                        <img src="img/dokusho.png">
-                    </div>
-                    <p>電子書籍アプリ。業務委託としてフロントの運用保守・開発をさせていただきました。ブラウザ部分。</p>
-                </li>
-                <li>
-                    <h4>Airレジ</h4>
-                    <div class="output-img-wrap">
-                        <img src="img/airregi.png">
-                    </div>
-                    <p>POSレジアプリ。業務委託としてフロントの運用保守・開発をさせていただきました。ブラウザ部分、主にアカウント関係。</p>
+                    <p>Web関係やラーメンのブログです。EvernoteAPIを利用して記事を作成します。</p>
                 </li>
             </ul>
-        </div>
-        <div id="contact">
+        </article>
+        <article id="contact">
             <h3 class="cmn-text_01">ご覧いただきありがとうございます。お気軽にフォローやメールしてください。</h3>
             <address>
                 <dl>
@@ -133,9 +117,9 @@
                 <% }); %>
             </ul>
             <!-- <div style="display: inline;position: static;" class="fb-page" data-href="https://www.facebook.com/satoru.tanaka.9480" data-tabs="" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/facebook"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div></div> -->
-        </div>
-    </article>
-</section>
+        </article>
+    </section>
+</main>
 <footer>
     <div class="update">
         <dl>
