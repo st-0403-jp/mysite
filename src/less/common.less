@@ -1,8 +1,8 @@
 /*common.less*/
 @charset "utf-8";
 @import url(https://fonts.googleapis.com/css?family=Montserrat&effect=3d-float);
-@import url(lib/sanitize.css);
-@import url(lib/font-awesome.min.css);
+@import url(../lib/sanitize.css);
+@import url(../lib/font-awesome.min.css);
 /*@import url(/bower_components/bootflat/css/font-awesome.min.css);*/
 /*
 @import url(/bower_components/bootflat/css/bootflat.css);
@@ -17,7 +17,7 @@
 @navWidth: 15%;
 
 /* common */
-html, body, #container, #main-contents {
+html, body, #container, main {
   height: 100%;
 }
 body {
@@ -107,7 +107,7 @@ footer {
   }
 }
 /* main-contents */
-#main-contents {
+main {
   width: 100%;
   display: -webkit-flex;
   display: -moz-flex;
@@ -115,7 +115,7 @@ footer {
   display: flex;
   overflow: hidden;
 }
-/* nav article */
+/* nav #contents-wrap */
 nav {
   width: @navWidth;
   background-color: #fff;
@@ -128,13 +128,13 @@ nav {
     }
   }
 }
-article {
+#contents-wrap {
   width: 100 - @navWidth;
   background-color: @color-silver;
   position: relative;
   overflow-y: scroll;
 
-  & > div {
+  & > article {
     min-height: 500px;
     margin: 48px 0;
     padding: 0 20px;

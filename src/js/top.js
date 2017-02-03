@@ -4,32 +4,32 @@ page.top = (function () {
   return {
     execute: function () {
 
-      common.util.renderDate($('.js-toYear'), 'year');
+      // common.util.renderDate($('.js-toYear'), 'year');
 
-      var $navLi = $('nav li'), $article = $('article'), $profile = $('#profile'), $skill = $('#skill'), $output = $('#output'), $contact = $('#contact');
-      var articleTop = $article.getBoundingClientRect().top;
+      var $navLi = $('nav li'), $contentsWrap = $('#contents-wrap'), $profile = $('#profile'), $skill = $('#skill'), $output = $('#output'), $contact = $('#contact');
+      var contentsWrapTop = $contentsWrap.getBoundingClientRect().top;
       var startOffset = {
         profile: $profile.getBoundingClientRect().top,
         skill: $skill.getBoundingClientRect().top,
         output: $output.getBoundingClientRect().top,
         contact: $contact.getBoundingClientRect().top
       };
-      var articleScrollTop;
-      $article.addEventListener('scroll', function () {
+      var contentsWrapScrollTop;
+      $contentsWrap.addEventListener('scroll', function () {
         Array.prototype.forEach.call($navLi, function (li) {
           li.classList.remove('current');
         });
-        articleScrollTop = this.scrollTop - articleTop;
-        if (articleScrollTop < startOffset.profile) {
+        contentsWrapScrollTop = this.scrollTop - contentsWrapTop;
+        if (contentsWrapScrollTop < startOffset.profile) {
           // profile
           $navLi[0].classList.add('current');
-        } else if (startOffset.profile < articleScrollTop && articleScrollTop < startOffset.skill) {
+        } else if (startOffset.profile < contentsWrapScrollTop && contentsWrapScrollTop < startOffset.skill) {
           // skill
           $navLi[1].classList.add('current');
-        } else if (startOffset.skill < articleScrollTop && articleScrollTop < startOffset.output) {
+        } else if (startOffset.skill < contentsWrapScrollTop && contentsWrapScrollTop < startOffset.output) {
           // output
           $navLi[2].classList.add('current');
-        } else if (startOffset.output < articleScrollTop && articleScrollTop < startOffset.contact) {
+        } else if (startOffset.output < contentsWrapScrollTop && contentsWrapScrollTop < startOffset.contact) {
           // contact
           $navLi[3].classList.add('current');
         }
