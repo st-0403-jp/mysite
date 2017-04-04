@@ -147,7 +147,25 @@ page.top = (function () {
             switchProfile('.profile_elements', '.profile_history', flgArr);
           }, 100);
         }
-
+      });
+      
+      // タブ切り替え
+      var tabChangeMap = {
+        "tab-01": '.profile_elements',
+        "tab-02": '.profile_history' 
+      };
+      Array.prototype.forEach.call($('.tab-change-list li'), function (li, index, lis) {
+        li.addEventListener('click', function (e) {
+          for(var key in tabChangeMap) {
+            $(tabChangeMap[key]).classList.add('none');
+          }
+          Array.prototype.forEach.call(lis, function (tab) {
+            tab.classList.remove('selected');
+          });
+          var liDataValue = e.target.dataset.tabId;
+          $(tabChangeMap[liDataValue]).classList.remove('none');
+          e.target.classList.add('selected');
+        });
       });
     }
   };
