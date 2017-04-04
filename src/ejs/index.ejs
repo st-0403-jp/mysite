@@ -48,16 +48,22 @@
     </nav>
     <section id="contents-wrap">
         <article id="profile">
-            <div class="profile_box">
-                <%- include('includes/profile/elements.ejs') %>
-                <%- include('includes/profile/history.ejs') %>
-            </div>
+            <!--
             <span class="paging mb_30">
                 <i class="switch-prev fa fa-chevron-circle-left fa-3x" aria-hidden="true"></i>
                 <i class="fa fa-circle point" aria-hidden="true"></i>
                 <i class="fa fa-circle-o" aria-hidden="true"></i>
                 <i class="switch-next fa fa-chevron-circle-right fa-3x" aria-hidden="true"></i>
             </span>
+            -->
+            <menu label="タブ切り替え" class="tab-change">
+                <li>プロフィール</li>
+                <li>ヒストリー</li>
+            </menu>
+            <div class="profile_box">
+                <%- include('includes/profile/elements.ejs') %>
+                <%- include('includes/profile/history.ejs') %>
+            </div>
         </article>
         <article id="skill">
             <h3 class="cmn-text_01">よく使う言語、ライブラリ、ツールです。</h3>
