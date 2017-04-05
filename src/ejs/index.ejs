@@ -28,7 +28,6 @@
 <link rel="stylesheet" type="text/css" href="css/common.css">
 <script type="text/javascript" src="lib/jquery.min.js"></script><!-- #2.1.0 -->
 <script type="text/javascript" src="js/global<%= extJs %>"></script>
-<script type="text/javascript" src="js/common.util<%= extJs %>"></script>
 <title>田中暁_Portfolio</title>
 </head>
 
@@ -48,17 +47,22 @@
     </nav>
     <section id="contents-wrap">
         <article id="profile">
-            <h3 class="cmn-text_01">よろしくお願いします！</h3>
-            <div class="profile_box">
-                <%- include('includes/profile/elements.ejs') %>
-                <%- include('includes/profile/history.ejs') %>
-            </div>
+            <!--
             <span class="paging mb_30">
                 <i class="switch-prev fa fa-chevron-circle-left fa-3x" aria-hidden="true"></i>
                 <i class="fa fa-circle point" aria-hidden="true"></i>
                 <i class="fa fa-circle-o" aria-hidden="true"></i>
                 <i class="switch-next fa fa-chevron-circle-right fa-3x" aria-hidden="true"></i>
             </span>
+            -->
+            <menu label="タブ切り替え" class="tab-change-list">
+                <li class="selected" data-tab-id="tab-01">プロフィール</li>
+                <li data-tab-id="tab-02">ヒストリー</li>
+            </menu>
+            <div class="profile_box">
+                <%- include('includes/profile/elements.ejs') %>
+                <%- include('includes/profile/history.ejs') %>
+            </div>
         </article>
         <article id="skill">
             <h3 class="cmn-text_01">よく使う言語、ライブラリ、ツールです。</h3>
@@ -86,11 +90,13 @@
             <h3 class="cmn-text_01">制作したものを紹介します。</h3>
             <ul>
                 <li>
-                    <h4>さささWeblog</h4>
-                    <div class="output-img-wrap">
-                        <img src="img/sssweblog.png">
-                    </div>
-                    <p>Web関係やラーメンのブログです。EvernoteAPIを利用して記事を作成します。</p>
+                    <a href="http://sssatoru-t.info/blog/" target="_blank">
+                        <h4>さささWeblog</h4>
+                        <div class="output-img-wrap">
+                            <img src="img/sssweblog.png">
+                        </div>
+                        <p>ラーメンのブログです。EvernoteAPIを利用しています。</p>
+                    </a>
                 </li>
             </ul>
         </article>
@@ -106,7 +112,7 @@
                 <%
                 var contactList = {
                     data: [
-                    {ele: '<i class="fa fa-facebook-square fa-5x" aria-hidden="true"></i>', link: 'https://www.facebook.com/satoru.tanaka.9480'},
+                    {ele: '<i class="fa fa-facebook-square fa-5x" aria-hidden="true"></i>', link: 'https://www.facebook.com/satoru.tanaka.sss'},
                     {ele: '<i class="fa fa-twitter-square fa-5x" aria-hidden="true"></i>', link: 'https://twitter.com/sato272015'},
                     {ele: '<i class="fa fa-github fa-5x" aria-hidden="true"></i>', link: 'https://github.com/st-0403-jp'}
                     ]
