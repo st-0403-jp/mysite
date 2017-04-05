@@ -18,6 +18,8 @@ var less = require('gulp-less');
 
 var json = JSON.parse(fs.readFileSync('./json/test.json'));
 
+var version = 'v0400';
+
 /**
   * @description
   * extJs: .js or .min.js
