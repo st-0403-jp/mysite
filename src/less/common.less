@@ -131,7 +131,7 @@ nav {
 }
 #contents-wrap {
   width: 100 - @navWidth;
-  background-color: @color-silver;
+  background-color: rgba(255, 255, 255, 0.4);
   position: relative;
   overflow-y: scroll;
   & > article {
@@ -325,6 +325,12 @@ nav {
       }
       p {
         font-size: 0.8em;
+      }
+      a {
+        display: block;
+        &:hover {
+          opacity: 0.5;
+        }
       }
     }
   }

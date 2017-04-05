@@ -4,7 +4,17 @@ page.top = (function () {
   return {
     execute: function () {
 
-      // common.util.renderDate($('.js-toYear'), 'year');
+      var ageCal = function () {
+        var dateObj = new Date();
+        var nowYear = dateObj.getFullYear();
+        var nowMonth = dateObj.getMonth() + 1;
+        var age = nowYear - 1986;
+        if (nowMonth < 4) {
+          age = age - 1;
+        }
+        return age;
+      };
+      $('#age').innerHTML = ageCal();
 
       var $navLi = $('nav li'), $contentsWrap = $('#contents-wrap'), $profile = $('#profile'), $skill = $('#skill'), $output = $('#output'), $contact = $('#contact');
       var contentsWrapTop = $contentsWrap.getBoundingClientRect().top;
