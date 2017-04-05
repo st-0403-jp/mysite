@@ -52,7 +52,7 @@ ejsData['skillList'] = [
   {skill: 'Handlebars', circleWidth: '78'},
   {skill: 'EJS', circleWidth: '78'},
   {skill: 'NodeJS', circleWidth: '52'},
-  {skill: 'Backbone', circleWidth: '26'},
+  {skill: 'Backbone', circleWidth: '52'},
   {skill: 'Git, Google Apps, Evernote, Trello ...', circleWidth: ''}
 ];
 /**
@@ -61,16 +61,16 @@ ejsData['skillList'] = [
   */
 ejsData['updateList'] = [
   {
+    dt: '2017.04.05',
+    dd: '全体のレイアウトを変更した'
+  },
+  {
     dt: '2017.01.03',
     dd: '日本語をメインに戻した。'
   },
   {
     dt: '2016.12.16',
     dd: 'クロスブラウザ対応。'
-  },
-  {
-    dt: '2016.12.07',
-    dd: 'お知らせ機能を追加。'
   }
 ];
 /*
