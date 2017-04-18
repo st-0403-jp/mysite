@@ -41,11 +41,6 @@ a:hover,
 a:active {
   opacity: 0.3;
 }
-.current {
-  a {
-    color: @color-pink;
-  }
-}
 h1 {
   font-size: 3em;
 }
@@ -118,7 +113,7 @@ main {
   overflow: hidden;
 }
 /* nav #contents-wrap */
-nav {
+#h_scroll-nav {
   width: @navWidth;
   background-color: #fff;
   padding: 48px 0;
@@ -126,6 +121,25 @@ nav {
     li {
       text-align: center;
       letter-spacing: 0.05em;
+    }
+  }
+  .current {
+    position: relative;
+    a {
+      color: @color-pink;
+    }
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border: 20px solid transparent;
+      border-right: 20px solid @color-pink;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
     }
   }
 }
