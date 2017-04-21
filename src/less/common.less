@@ -128,13 +128,14 @@ main {
     a {
       color: @color-pink;
     }
+    @triangle-width: 10px;
     &::after {
       content: "";
       display: inline-block;
       width: 0;
       height: 0;
-      border: 20px solid transparent;
-      border-right: 20px solid @color-pink;
+      border: @triangle-width solid transparent;
+      border-right: @triangle-width solid @color-pink;
       position: absolute;
       top: 0;
       bottom: 0;
