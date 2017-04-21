@@ -177,6 +177,12 @@ page.top = (function () {
           e.target.classList.add('selected');
         });
       });
+
+      // サイト仕様モーダル
+      var $siteDes = $('#site-description');
+      $siteDes.addEventListener('click', function (e) {
+        console.log(e.target);
+      });
     }
   };
 })();
