@@ -18,7 +18,7 @@ var less = require('gulp-less');
 
 var json = JSON.parse(fs.readFileSync('./json/test.json'));
 
-var version = 'v0400';
+var version = 'v0510';
 
 /**
   * @description
@@ -63,16 +63,16 @@ ejsData['skillList'] = [
   */
 ejsData['updateList'] = [
   {
-    dt: '2017.04.00',
+    dt: '2017.05.08',
+    dd: 'サイト仕様モーダルを追加した'
+  },
+  {
+    dt: '2017.04.17',
     dd: 'スクロールにナビゲーションを追加'
   },
   {
     dt: '2017.04.05',
     dd: '全体のレイアウトを変更した'
-  },
-  {
-    dt: '2017.01.03',
-    dd: '日本語をメインに戻した。'
   }
 ];
 /*
