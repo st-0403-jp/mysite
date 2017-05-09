@@ -177,6 +177,50 @@ page.top = (function () {
           e.target.classList.add('selected');
         });
       });
+
+      // サイト仕様モーダル
+      var $siteDes = $('#site-description');
+      var modalContentsCreate = function () {
+        var modalDt, modalDd;
+        var createdArr = [];
+        Array.prototype.forEach.call(arguments, function (dlObj) {
+          modalDt = document.createElement('dt');
+          modalDt.innerHTML = dlObj.dt;
+          createdArr.push(modalDt);
+          modalDd = document.createElement('dd');
+          modalDd.innerHTML = dlObj.dd;
+          createdArr.push(modalDd);
+        });
+        return createdArr;
+      };
+      $siteDes.addEventListener('click', function (e) {
+        var modalWrap = document.createElement('div');
+        modalWrap.id = 'site-description-modal';
+        $('body').appendChild(modalWrap);
+        var modalContentsDl = document.createElement('dl');
+        modalContentsDl.id = 'site-description-modal-dl';
+        $('#site-description-modal').appendChild(modalContentsDl);
+        var modalContentsClose = document.createElement('a');
+        modalContentsClose.id = 'site-description-modal-close';
+        modalContentsClose.onclick = function () { this.parentNode.remove(); };
+        $('#site-description-modal').appendChild(modalContentsClose);
+        var modalContentsCloseCross = document.createElement('i');
+        modalContentsCloseCross.classList.add('fa');
+        modalContentsCloseCross.classList.add('fa-times');
+        $('#site-description-modal-close').appendChild(modalContentsCloseCross);
+        modalContentsCreate({
+          dt: '対応ブラウザ',
+          dd: 'Google Chrome, Apple Safari, Microsoft Internet Explorer, Mozilla Firefox<span style="display: block;margin-top: 10px;">※最新バージョン</span>'
+        },{
+          dt: 'クライアント環境',
+          dd: 'VanillaJS, Sanitize.css, Font Awesome, Google Fonts'
+        },{
+          dt: 'ビルド環境',
+          dd: 'NodeJS, GulpJS, EJS, LESS'
+        }).forEach(function (modalContents) {
+          $('#site-description-modal-dl').appendChild(modalContents);
+        });
+      });
     }
   };
 })();

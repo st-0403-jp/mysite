@@ -6,8 +6,8 @@
     var host = location.host || location.hostname;
     if (!host) { return; }
     if (host === 'satoru-t-0403.boo.jp') {
-        alert('***！リダイレクト***\n\n申し訳ありません。\nhttp://satoru-t-0403.boo.jp はただいま機能していないので正しいページに遷移します');
-        location.href = 'http://sssatoru-t.info' + '/portfolio';
+        alert('###リダイレクト###\n\n申し訳ありません。\nhttps://satoru-t-0403.boo.jp はただいま機能していないので正しいページをロードします。');
+        location.href = 'https://sssatoru-t.info' + '/portfolio';
         return;
     } else {
         return;
@@ -21,12 +21,12 @@
 <meta name="author" content="田中暁">
 <meta property="og:site_name" content="Portfolio by Satoru Tanaka">
 <meta property="og:type" content="website">
-<meta property="og:url" content="http://sssatoru-t.info/portfolio/">
+<meta property="og:url" content="https://sssatoru-t.info/portfolio/">
 <meta property="og:description" content="Webで豊かな生活を送ろうをテーマに、クリエイターをしています。ラーメンが大好きです。主な職能はフロントエンドエンジニア、Webデザインなどです。詩を書いたり音楽を創るのも気分転換にしています。">
-<meta property="og:image" content="http://sssatoru-t.info/portfolio/img/me.jpg">
+<meta property="og:image" content="https://sssatoru-t.info/portfolio/img/me.jpg">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="css/common.css">
-<script type="text/javascript" src="lib/jquery.min.js"></script><!-- #2.1.0 -->
+<!--<script type="text/javascript" src="lib/jquery.min.js"></script>--><!-- #2.1.0 -->
 <script type="text/javascript" src="js/global<%= extJs %>"></script>
 <title>田中暁_Portfolio</title>
 </head>
@@ -37,7 +37,7 @@
     <h1>Portfolio by Satoru Tanaka</h1>
 </header>
 <main>
-    <nav>
+    <nav id="h_scroll-nav">
         <ul>
             <li class="current"><h2><a href="#profile" data-nav-id="profile">Profile</a></h2></li>
             <li class=""><h2><a href="#skill" data-nav-id="skill">skill</a></h2></li>
@@ -90,7 +90,7 @@
             <h3 class="cmn-text_01">制作したものを紹介します。</h3>
             <ul>
                 <li>
-                    <a href="http://sssatoru-t.info/blog/" target="_blank">
+                    <a href="https://sssatoru-t.info/blog/" target="_blank">
                         <h4>さささWeblog</h4>
                         <div class="output-img-wrap">
                             <img src="img/sssweblog.png">
@@ -139,7 +139,7 @@
             <% }); %>
         </dl>
     </div>
-    <small style="right: 16px;bottom: 26px;"><a class="link-white hover-underline" href="#">サイト仕様</a></small>
+    <small id="site-description" style="right: 16px;bottom: 26px;"><a class="link-white hover-underline" href="#">サイト仕様</a></small>
     <small style="right: 16px;bottom: 5px;">&copy; 2016-<%= toYear.year %> SatoruTanaka</small>
 </footer>
 </div>

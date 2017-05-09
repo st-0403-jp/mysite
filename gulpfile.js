@@ -18,7 +18,7 @@ var less = require('gulp-less');
 
 var json = JSON.parse(fs.readFileSync('./json/test.json'));
 
-var version = 'v0400';
+var version = 'v0510';
 
 /**
   * @description
@@ -63,16 +63,16 @@ ejsData['skillList'] = [
   */
 ejsData['updateList'] = [
   {
+    dt: '2017.05.08',
+    dd: 'サイト仕様モーダルを追加した'
+  },
+  {
+    dt: '2017.04.17',
+    dd: 'スクロールにナビゲーションを追加'
+  },
+  {
     dt: '2017.04.05',
     dd: '全体のレイアウトを変更した'
-  },
-  {
-    dt: '2017.01.03',
-    dd: '日本語をメインに戻した。'
-  },
-  {
-    dt: '2016.12.16',
-    dd: 'クロスブラウザ対応。'
   }
 ];
 /*
@@ -129,7 +129,9 @@ gulp.task('img', function () {
 });
 
 gulp.task('serve', ['ejs', 'less', 'js', 'img', 'lib'], function () {
-  gulp.watch(['src/ejs/*.ejs', 'src/less/*.less', 'src/js/*.js'], ['ejs', 'less', 'js']);
+  gulp.watch(['src/ejs/*.ejs'], ['ejs']);
+  gulp.watch(['src/less/*.less'], ['less']);
+  gulp.watch(['src/js/*.js'], ['js']);
   gulp.watch(['src/ejs/includes/profile/*.ejs'], ['ejs']);
   gulp.watch(['src/img/*.jpg', 'src/img/*.png'], ['img']);
   gulp.src('mock')
