@@ -35,7 +35,7 @@ var ejsData = {};
   * @year: String
   */
 ejsData['toYear'] = {
-  year: '2017'
+  year: '2018'
 };
 
 /**
@@ -48,14 +48,15 @@ ejsData['skillList'] = [
   {skill: 'HTML5', circleWidth: '130'},
   {skill: 'CSS3', circleWidth:'130'},
   {skill: 'JavaScript', circleWidth: '130'},
+  {skill: 'Angular', circleWidth: '104'},
   {skill: 'Gulp', circleWidth: '104'},
-  {skill: 'LESS', circleWidth: '78'},
-  {skill: 'FontAwesome', circleWidth: '78'},
-  {skill: 'Handlebars', circleWidth: '78'},
   {skill: 'EJS', circleWidth: '78'},
+  {skill: 'LESS', circleWidth: '78'},
+  {skill: 'Git', circleWidth: '78'},
+  {skill: 'FontAwesome', circleWidth: '78'},
   {skill: 'NodeJS', circleWidth: '52'},
-  {skill: 'Backbone', circleWidth: '52'},
-  {skill: 'Git, Google Apps, Evernote, Trello ...', circleWidth: ''}
+  {skill: 'WebAPI', circleWidth: '52'},
+  {skill: 'Backbone, Handlebars, wordpress ...', circleWidth: ''}
 ];
 /**
   * お知らせ
@@ -63,16 +64,16 @@ ejsData['skillList'] = [
   */
 ejsData['updateList'] = [
   {
+    dt: '2018.02.18',
+    dd: '最新の情報にしました'
+  },
+  {
     dt: '2017.05.08',
-    dd: 'サイト仕様モーダルを追加した'
+    dd: 'サイト仕様モーダルを追加しました'
   },
   {
     dt: '2017.04.17',
-    dd: 'スクロールにナビゲーションを追加'
-  },
-  {
-    dt: '2017.04.05',
-    dd: '全体のレイアウトを変更した'
+    dd: 'スクロールにナビゲーションを追加しました'
   }
 ];
 /*
